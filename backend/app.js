@@ -22,8 +22,10 @@ app.use('/user2', require('./routes/user2.js'));
 app.get('*', (req, res) => {
   res.status(404).send('You did something wrong!');
 });
-
-const PORT = 5000;
+// app.get('*', (req, res) => {
+//     console.log(req.session);
+//   });
+const PORT = 3000;
 
 app.listen(PORT, console.log(`Server started on port ${PORT}`));
 
