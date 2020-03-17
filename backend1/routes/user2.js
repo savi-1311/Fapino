@@ -2,6 +2,7 @@ const express = require("express")
 const router = express.Router()
 const bcrypt = require("bcrypt")
 const mySqlConnection = require("../db/db")
+
 let user2
 
 router.get("/register", (req, res) => {
@@ -141,7 +142,7 @@ router.post("/register", (req, res) => {
     })
     
     router.get("/Menu", (req, res) => {
-      if (req.session.user) {
+      if (req.session.user2) {
         mySqlConnection.query(
           "SELECT * FROM Menu WHERE restaurantid = ?",
           [req.session.user2.restaurantid],
