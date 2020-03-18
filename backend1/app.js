@@ -19,6 +19,7 @@ app.use('/', require('./routes/index.js'));
 app.use('/user1', require('./routes/user1.js'));
 app.use('/user2', require('./routes/user2.js'));
 
+// app.get("*", (req,res) => res.send("404 error"));
 app.get('*', (req, res) => {
   res.status(404).send('You did something wrong!');
 });
