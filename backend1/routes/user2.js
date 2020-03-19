@@ -155,4 +155,97 @@ router.post("/register", (req, res) => {
       } else res.status(401).send("login to view")
     })
 
+    router.get("/Menu/:dishno", (req, res) => {
+      if (req.session.user2) {
+        mySqlConnection.query(
+          "SELECT * FROM Menu WHERE dishno = ? AND restaurantid = ?",
+          [req.params.dishno, req.session.user2.restaurantid],
+          (err, rows) => {
+            if (err) res.status(500).send(err)
+            if (rows.length) res.status(200).send(rows[0])
+            else res.status(404).send("Dish not found")
+          },
+        )
+      } else {
+        res.send("login to View")
+      }
+    })
+    
+    router.post("/Menu/:dishno", (req, res) => {
+      if (req.session.user2) {
+        const { name, phone, relationship, email } = req.body
+        mySqlConnection.query(
+          "SELECT * FROM Menu WHERE dishno = ? AND restaurantid = ?",
+          [req.params.dishno, req.session.user2.restaurantid],
+          (err, rows) => {
+            if (err) res.status(500).send(err)
+            if (!rows.length) {
+            res.status = 401;
+            res.render("Menu", {msg: "[err]you dont have this dish"})
+            }
+            else {
+              mySqlConnection.query(
+                "UPDATE Menu SET dishname=?, cusine=?, category=?, foodtype=?, dishprice=? WHERE dishno = ?",
+                [name, phone, relationship, email, req.params.contactID],
+                err => {
+                  if (err) res.status(500).send(err)
+                  else {
+                  res.status = 200
+                    res.redirect("/user2/Menu");
+                  }
+                },
+              )
+            }
+          },
+        )
+      } else {
+      res.status = 401;
+      res.render("login", {msg: "[err]login first"})
+      }
+    })
+    router.get("/Menu/delete/:dishno", (req, res) => {
+      if (req.session.user) {
+        mySqlConnection.query(
+          "SELECT * FROM menu WHERE dishno = ? AND restaurantid = ?",
+          [req.params.dishno, req.session.user2.restaurantid],
+          (err, rows) => {
+            if (err) res.status(500).send(err)
+            else if (!rows.length) {
+              res.status = 401;
+              res.redirect('Menu')
+            }
+            else {
+              mySqlConnection.query(
+                "DELETE FROM Menu WHERE dishno = ?",
+                [req.params.dishno],
+                (err) => {
+                  if (err) res.status(500).send(err)
+                  else {
+                    res.status = 200;
+                    res.redirect('/user2/Menu');
+                  }
+                },
+              )
+            }
+          },
+        )
+      } else {
+        res.send("login to Delete")
+      }
+    })
+    router.post("/update", (req, res) => {
+      if (req.session.user2) {
+        const { name, phone } = req.body
+        mySqlConnection.query(
+          "UPDATE user2 SET resname=?, phone=? WHERE restaurantid = ?",
+          [resname, phone, req.session.user2.restaurantid],
+          (err, rows) => {
+            if (err) throw err
+            req.session.user2 = { ...req.session.user2, ...req.body }
+            res.send(req.session.user2)
+          },
+        )
+      } else res.send("please login")
+    })
+
 module.exports = router

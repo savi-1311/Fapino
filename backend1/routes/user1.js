@@ -124,4 +124,38 @@ router.post("/register", (req, res) => {
       }
     })
 
+    router.post("/cart", (req, res) => {
+      if (req.session.user1) {
+        const {dishname ,dishprice, quantity } = req.body
+        let errors = []
+        if (!dishname || !dishprice )
+          errors.push({ msg: "dish name or dish price cannot be empty" })
+        else {
+          var sql = `INSERT INTO Menu (dishname, dishprice, quantity, userid) VALUES ?`
+          const values = [
+            [dishname, dishprice, quantity, req.session.user1.userid],
+          ]
+    
+          mySqlConnection.query(sql, [values], err => {
+            if (err) res.status(500).send(err)
+            res.status(200).send("Dish Added")
+          })
+        }
+      } else res.status(401).send("Login to post")
+    })
+    
+    router.get("/cart", (req, res) => {
+      if (req.session.user1) {
+        mySqlConnection.query(
+          "SELECT * FROM cart WHERE userid = ?",
+          [req.session.user1.userid],
+          (err, rows) => {
+            if (err) res.status(500).send(err)
+            req.session.cart = rows
+            res.status(200).send(rows)
+          },
+        )
+      } else res.status(401).send("login to view")
+    })
+
 module.exports = router 
