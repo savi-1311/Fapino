@@ -7,13 +7,13 @@ let user2
 
 router.get("/register", (req, res) => {
   if (!req.session.user2) {
-    res.status(200).send('register form will be here')
+    res.status(200).render('Register2')
   } else res.status(401).send("Not possible as you are logged in already")
 })
 
 router.get("/login", (req, res) => {
   if (!req.session.user2)
-    res.status(200).send("login page here!")
+    res.status(200).render('login2')
   else res.status(401).send("nope, logout")
 });
 router.post("/register", (req, res) => {
@@ -78,7 +78,7 @@ router.post("/register", (req, res) => {
     
     if (err) res.status(500).send(err);
     
-    else res.status(200).send("successfully registered");
+    else res.status(200).send("Registered successfully")
     
     });
     

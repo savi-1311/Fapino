@@ -1,0 +1,36 @@
+<%= typeof errors != 'undefined' ? JSON.stringify(errors) : '' %>
+    <form method="post" action="/user2/register" id="register2">
+		<div class="registrationbox">
+		<!-- <img src="../assets/user.jpg" > -->
+        <h1>New to Fap Fam?<br>Register Now!</h1>
+
+			<label>Restaurant's Name:
+                <input type="text" name="resname" placeholder="Enter Restaurant's name" required>
+            </label><br>
+
+            <label>Email:
+                <input type="email" name="email" placeholder="Enter Email" required>
+            </label><br>
+
+
+			
+			<label>Password:
+                <input type="Password" name="password" placeholder="Enter Password" required>
+            </label><br>
+			
+			<label>Confirm Password:
+                <input type="Password" name="password2" placeholder="Enter Password" required>
+            </label><br>
+			
+
+			<label>Contact Number:
+			<input type="text" name="phone" placeholder="Enter Restaurant's Phone Number" required></label><br>
+            
+            
+            <label>Address:
+                <input type="text" name="address" placeholder="Enter Restaurant's Address" required>
+            </label><br>
+            <input type="submit">
+		
+        </div>
+</form>

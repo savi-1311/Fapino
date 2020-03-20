@@ -6,7 +6,7 @@ let user1
 
 router.get("/register", (req, res) => {
   if (!req.session.user1) {
-    res.status(200).send('register form will be here')
+    res.status(200).render('Register1')
   } else res.status(401).send("Not possible as you are logged in already")
 })
 
@@ -110,7 +110,7 @@ router.post("/register", (req, res) => {
 
     router.get("/login", (req, res) => {
       if (!req.session.user1)
-        res.status(200).send("login page here!")
+        res.status(200).render('login1')
       else res.status(401).send("nope, logout")
     });
     
@@ -131,14 +131,14 @@ router.post("/register", (req, res) => {
         if (!dishname || !dishprice )
           errors.push({ msg: "dish name or dish price cannot be empty" })
         else {
-          var sql = `INSERT INTO Menu (dishname, dishprice, quantity, userid) VALUES ?`
+          var sql = `INSERT INTO cart (dishname, dishprice, quantity, customerid) VALUES ?`
           const values = [
-            [dishname, dishprice, quantity, req.session.user1.userid],
+            [dishname, dishprice, quantity, req.session.user1.customerid],
           ]
     
           mySqlConnection.query(sql, [values], err => {
             if (err) res.status(500).send(err)
-            res.status(200).send("Dish Added")
+            res.status(200).send("Dish Added to cart")
           })
         }
       } else res.status(401).send("Login to post")
@@ -147,8 +147,8 @@ router.post("/register", (req, res) => {
     router.get("/cart", (req, res) => {
       if (req.session.user1) {
         mySqlConnection.query(
-          "SELECT * FROM cart WHERE userid = ?",
-          [req.session.user1.userid],
+          "SELECT * FROM cart WHERE customerid = ?",
+          [req.session.user1.customerid],
           (err, rows) => {
             if (err) res.status(500).send(err)
             req.session.cart = rows
