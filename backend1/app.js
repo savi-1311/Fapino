@@ -14,6 +14,7 @@ app.use(session({
   saveUninitialized: true,
   cookie: { maxAge: 3600000 }
 }));
+app.use(express.static('public'));
 app.use(expressLayouts);
 app.set("view engine", "ejs");
 

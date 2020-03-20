@@ -102,7 +102,7 @@ router.post("/register", (req, res) => {
             const result = bcrypt.compareSync(password, user2.pwdHash)
             if (result) {
               req.session.user2 = user2;
-              res.status(200).send(user2)
+              res.status(200).redirect('/dashboard2?login+success');
             } else {
               res.status(400).send("pwd incorrect")
             }
@@ -115,7 +115,7 @@ router.post("/register", (req, res) => {
     router.get("/logout", (req, res) => {
       if (req.session.user2) {
         req.session.destroy(() => {
-          res.status(200).send("logout success")
+          res.status(200).render('home1')
         })
       } else {
         res.status(400).send("you are not logged in")
@@ -135,7 +135,7 @@ router.post("/register", (req, res) => {
     
           mySqlConnection.query(sql, [values], err => {
             if (err) res.status(500).send(err)
-            res.status(200).send("Dish saved")
+            res.status(200).redirect("/user2/Menu?dish+added+successfully")
           })
         }
       } else res.status(401).send("login to post")
@@ -148,8 +148,11 @@ router.post("/register", (req, res) => {
           [req.session.user2.restaurantid],
           (err, rows) => {
             if (err) res.status(500).send(err)
-            req.session.Menu = rows
-            res.status(200).send(rows)
+            else
+            {
+              res.status = 200;
+            res.render('Menu', {Menu : rows})
+            }
           },
         )
       } else res.status(401).send("login to view")
@@ -173,7 +176,7 @@ router.post("/register", (req, res) => {
     
     router.post("/Menu/:dishno", (req, res) => {
       if (req.session.user2) {
-        const { name, phone, relationship, email } = req.body
+        const { dishname, category, cusine, foodtype, dishprice } = req.body
         mySqlConnection.query(
           "SELECT * FROM Menu WHERE dishno = ? AND restaurantid = ?",
           [req.params.dishno, req.session.user2.restaurantid],
@@ -186,7 +189,7 @@ router.post("/register", (req, res) => {
             else {
               mySqlConnection.query(
                 "UPDATE Menu SET dishname=?, cusine=?, category=?, foodtype=?, dishprice=? WHERE dishno = ?",
-                [name, phone, relationship, email, req.params.contactID],
+                [dishname, cusine, category, foodtype, dishprice, req.params.dishno],
                 err => {
                   if (err) res.status(500).send(err)
                   else {
@@ -204,7 +207,7 @@ router.post("/register", (req, res) => {
       }
     })
     router.get("/Menu/delete/:dishno", (req, res) => {
-      if (req.session.user) {
+      if (req.session.user2) {
         mySqlConnection.query(
           "SELECT * FROM menu WHERE dishno = ? AND restaurantid = ?",
           [req.params.dishno, req.session.user2.restaurantid],

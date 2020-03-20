@@ -1,0 +1,126 @@
+<!-- <link rel="stylesheet" href="/css/Menu.css"> -->
+<a href = '/dashboard2'><button >Go Back</button></a>
+<% let title="add dish"; %>
+<%= typeof msg != 'undefined' ? msg : '' %>
+  <div class="Menu-Box" id="MenuContainer">
+    <%for(var i=0;i<Menu.length;i++){%>
+    <div class="card-box">
+      <div class="info-column">
+        <span><b><%= Menu[i].dishname%></b></span>
+        <span><%= Menu[i].dishprice%></span>
+      </div>
+      <div class="info-column">
+        <span><b>Dish Category</b></span>
+        <span><%= Menu[i].category%></span>
+      </div>
+      <div class="info-column">
+        <span><b>Dish Cusine</b></span>
+        <span><%= Menu[i].cusine%></span>
+      </div>
+      <div class="info-column">
+        <span><b>Dish Type</b></span>
+        <span><%= Menu[i].foodtype%></span>
+      </div>
+      <button onclick="addDish(0,<%=i%>);">EDIT</button>
+      <a href="/user2/Menu/delete/<%= Menu[i].dishno %>">DELETE</a>
+    </div>
+    <%}%>
+
+
+  <!-- Add contact modal -->
+  <div class="modal-container" style="display: none;" id="modal-container">
+    <div class="modal">
+      <div style="display: flex; flex-direction: column; justify-content: space-between;">
+      <h2 id="form-title"></h2>
+      <!-- <h2> ADD A NEW CONTACT(s)</h2> -->
+      <h2 onclick="closeModal()" style="cursor: pointer;">&times;</h2>
+    </div>
+      <form class="modal-form" method="POST" action="/user2/Menu">
+        
+        <div>
+          <label>Dish Name : </label>
+          <input
+            type="text"
+            name="dishname"
+            id="dishname"
+            placeholder="Enter Dish Name"
+          />
+        </div>
+        <div>
+        <label> Dish Price: </label>
+        <input
+          type="text"
+          name="dishprice"
+          id="dishprice"
+          placeholder="Enter Dish Price"
+        />
+      </div>
+      <div>
+      <label>Dish Cusine: 
+        <input type="radio" name="cusine" class= "cusine" value="indian" checked> Indian
+        <input type="radio" name="cusine" class= "cusine"  value="chinese"> Chinese
+        <input type="radio" name="cusine" class= "cusine"  value="italian"> Italian<br>
+     </label>
+      </div>
+      <div>
+      <label>Dish Category: 
+        <input type="radio" name="category" class= "category" value="starter" checked> Starters
+        <input type="radio" name="category" class= "category"  value="main course"> Main Course
+        <input type="radio" name="category" class= "category"  value="dessert"> Desserts And Refreshments<br>
+     </label>
+      </div>
+      <div>
+      <label>Dish Type: 
+        <input type="radio" name="foodtype" class= "foodtype"  value="veg" checked> Vegetarian
+        <input type="radio" name="foodtype" class= "foodtype"  value="non-veg"> Non-Vegetarian
+     </label>
+      </div>
+      <button type="submit">Save</button>
+      </form>
+    </div>
+  </div>
+  <!-- Add contact button -->
+  <div style="display: flex; justify-content: center;">
+    <button class="button" onclick="addDish(0,<%=i+1%>)">Add New Dish</button>
+  </div>
+
+<script>const addDish = (val,i) => {
+  const title = document.getElementById('form-title');
+  if(!val){
+    title.innerHTML= "Edit Dish";
+    const modal = document.getElementById("modal-container");
+    modal.style.display = "flex";
+    modal.style.animation = "modalFadeIn 0.5s";
+    document.getElementById("dishname").setAttribute("value", <%- JSON.stringify(Menu) %>[i].dishname);
+    document.getElementById("dishprice").setAttribute("value", <%- JSON.stringify(Menu) %>[i].dishprice);
+    document.getElementsByClassName("cusine").setAttribute("value", <%- JSON.stringify(Menu) %>[i].cusine);
+    document.getElementsByClassName("category").setAttribute("value", <%- JSON.stringify(Menu) %>[i].category);
+    document.getElementsByClassName("dishtype").setAttribute("value", <%- JSON.stringify(Menu) %>[i].foodtype);
+    const form = document.getElementsByTagName("form")[0];
+    form.action = `/user2/Menu/${<%- JSON.stringify(Menu) %>[i].dishno}`
+  }
+  else{
+    title.innerHTML= "Add Dish";
+    document.getElementById("dishname").setAttribute("value", '');
+    document.getElementById("dishprice").setAttribute("value", '');
+    document.getElementsByClassName("cusine").setAttribute("value", '');
+    document.getElementsByClassName("category").setAttribute("value", '');
+    document.getElementsByClassName("foodtype").setAttribute("value", '');
+    const form = document.getElementsByTagName("form")[0];
+    form.action = `/user2/Menu`
+    
+
+    const modal = document.getElementById("modal-container");
+    modal.style.display = "flex";
+    modal.style.animation = "modalFadeIn 0.5s";
+
+  }
+  }
+  
+  const closeModal = () => {
+    const modal = document.getElementById("modal-container");
+    modal.style.animation = "modalFadeOut 0.5s";
+    setTimeout(() => {
+      modal.style.display = "none";
+    }, 400);
+  }</script>
