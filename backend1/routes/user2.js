@@ -115,7 +115,7 @@ router.post("/register", (req, res) => {
     router.get("/logout", (req, res) => {
       if (req.session.user2) {
         req.session.destroy(() => {
-          res.status(200).render('home1')
+          res.status(200).redirect('/')
         })
       } else {
         res.status(400).send("you are not logged in")
