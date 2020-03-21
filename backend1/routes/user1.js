@@ -97,7 +97,7 @@ router.post("/register", (req, res) => {
             const result = bcrypt.compareSync(password, user1.pwdHash)
             if (result) {
               req.session.user1 = user1
-              res.status(200).send(user1)
+              res.status(200).redirect('/home2?login+sucess')
             } else {
               res.status(400).send("pwd incorrect")
             }
@@ -117,7 +117,7 @@ router.post("/register", (req, res) => {
     router.get("/logout", (req, res) => {
       if (req.session.user1) {
         req.session.destroy(() => {
-          res.status(200).send("logout success")
+          res.status(200).redirect('/')
         })
       } else {
         res.status(400).send("you are not logged in")
@@ -127,10 +127,7 @@ router.post("/register", (req, res) => {
     router.post("/cart", (req, res) => {
       if (req.session.user1) {
         const {dishname ,dishprice, quantity } = req.body
-        let errors = []
-        if (!dishname || !dishprice )
-          errors.push({ msg: "dish name or dish price cannot be empty" })
-        else {
+    
           var sql = `INSERT INTO cart (dishname, dishprice, quantity, customerid) VALUES ?`
           const values = [
             [dishname, dishprice, quantity, req.session.user1.customerid],
@@ -138,24 +135,56 @@ router.post("/register", (req, res) => {
     
           mySqlConnection.query(sql, [values], err => {
             if (err) res.status(500).send(err)
-            res.status(200).send("Dish Added to cart")
+            else
+            res.status(200).redirect('back')
           })
-        }
+      
       } else res.status(401).send("Login to post")
     })
     
-    router.get("/cart", (req, res) => {
-      if (req.session.user1) {
+    // router.get("/cart", (req, res) => {
+    //   if (req.session.user1) {
+    //     mySqlConnection.query(
+    //       "SELECT * FROM cart WHERE customerid = ?",
+    //       [req.session.user1.customerid],
+    //       (err, rows) => {
+    //         if (err) res.status(500).send(err)
+    //         else{
+    //         req.session.cart = rows
+    //         res.status = 200;
+    //         res.render('Menu', {cart : rows})
+    //         }
+    //       },
+    //     )
+    //   } else res.status(401).send("login to view")
+    // })
+
+    router.get('/cart', (req, res) => {
+      if (req.session.user1)
+      {
         mySqlConnection.query(
-          "SELECT * FROM cart WHERE customerid = ?",
-          [req.session.user1.customerid],
-          (err, rows) => {
+          "SELECT * FROM user1 WHERE customerid = ?",[req.session.user1.customerid],
+          (err, rows) => 
+          {
             if (err) res.status(500).send(err)
-            req.session.cart = rows
-            res.status(200).send(rows)
-          },
-        )
-      } else res.status(401).send("login to view")
-    })
+            else
+            {
+              mySqlConnection.query(
+                "SELECT * FROM cart WHERE customerid = ?",[req.session.user1.customerid],
+                (err, rows) => 
+                {
+                  if (err) res.status(500).send(err)
+                  else
+                  {
+                  res.status = 200;
+                  res.render('cart', {cart : rows , user1 : req.session.user1})
+                  }
+                },)
+              }
+            },)
+          }
+          else res.status(401).send("login to view")
+        })
+
 
 module.exports = router 

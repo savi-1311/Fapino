@@ -1,0 +1,11 @@
+<h1>Order Details for <%= user1.name %> </h1><br>
+    <div id="Order-details">
+        <%for(var i=0;i<cart.length;i++){%>
+        <h2><%= i+1 %>.  <%= cart[i].dishname %></h2>
+        <h3>Price Each : <%= cart[i].dishprice%></h3>
+        <h3>Quantity : <%= cart[i].quantity%></h3>
+        <br>
+        <% } %>
+    </div>
+        
+    
