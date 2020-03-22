@@ -45,7 +45,7 @@ form {
   .loginimg {
     margin: 24px 0 24px 520px;
     max-width : 30%;
-    height : 40%;
+    /* height : 40%; */
     border-radius : 25px
     
 }
