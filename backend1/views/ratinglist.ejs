@@ -1,0 +1,14 @@
+<link rel="stylesheet" href="/css/cart.css">
+</script>
+    <div id="Order-details">
+        <%for(var i=0;i<cart.length;i++){%>
+        <div class ="orderinfo">
+        <h2><%= i+1 %>.  <%= cart[i].dishname %></h2>
+        <a href="/user1/cart/pay/rating<%= cart[i].dishno %>"><button>RATE</button></a>
+            </div>
+            <br>
+        <% } %>
+        
+    </div>
+      
+    

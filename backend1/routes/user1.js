@@ -203,7 +203,7 @@ router.post("/register", (req, res) => {
         })
         router.post("/update", (req, res) => {
           if (req.session.user1) {
-            const { name, phone } = req.body
+            const { name, address } = req.body
             mySqlConnection.query(
               "UPDATE user1 SET name=?, address=? WHERE customerid = ?",
               [name, address, req.session.user1.customerid],
@@ -228,5 +228,65 @@ router.post("/register", (req, res) => {
           }
           else res.send("Please Login")
         })
+
+        router.get("/cart/pay/ratinglist",(req,res) => {
+          if(req.session.user1){
+          mySqlConnection.query(
+            "SELECT * FROM cart WHERE customerid = ?",[req.session.user1.customerid],(err,rows)=>
+            {
+              if(err) throw err
+              else
+              {
+              res.render('ratinglist',{user1 : req.session.user1, cart : rows})
+              }
+            }
+          )
+          }
+          else res.send("Please Login")
+        })
+
+        router.get("/cart/pay/rating:dishno",(req,res) => {
+          if(req.session.user1){
+            mySqlConnection.query(
+              "SELECT * FROM Menu WHERE dishno = ? ",[req.params.dishno],(err,rows) => 
+              {
+                if(err) throw err
+                else{
+                res.status(200).render("rating",{user1 : req.session.user1, Menu : rows});
+                }
+              }
+            )
+            }
+              
+          
+          else res.send("Please Login")}
+        )
+
+        router.post("/cart/pay/rating:dishno",(req,res) => {
+          if(req.session.user1){
+            const {rating} = req.body
+            var sql = `INSERT INTO ratings (dishno, rating) VALUES = ? `
+            const values = [[req.params.dishno, rating]];
+            mySqlConnection.query(sql, [values], function(err) {
+    
+              if (err) res.status(500).send(err);
+            else{
+            res.status=200;
+            var sql1 = `INSERT INTO Menu(ratingdish) Select AVG(rating) FROM ratings where dishno = ? `
+            const values = [[req.params.dishno]];
+            mySqlConnection.query(sql1, [values], function(err) {
+    
+              if (err) res.status(500).send(err);
+              
+              else{ 
+              res.status(200).send("sucessfully rated");
+              }
+              
+              });}
+          })}
+          else res.send("Please Login")
+        })
+
+
 
 module.exports = router 
