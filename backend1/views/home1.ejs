@@ -53,31 +53,31 @@
 </div>
 
 <div class="zone green grid-wrapper">
-    <%for(var i=0;i<user2.length;i+=4){%>
-   <div class="box-zone"><img src="/images/img5.jpg"><h3 style="font-family: serif;
-    font-size: 18pt;
-    color: blue;
-    text-align: center;"><%= user2[i].resname%></h3></div>
-   <% if (i+1 < user2.length) { %>
-    <div class="box-zone"><img src="/images/img7.jpg"><h3 style="font-family: serif;
-        font-size: 18pt;
-        color: blue;
-        text-align: center;"><%= user2[i+1].resname%></h3></div>
-    <% } %>
-    <% if (i+2 < user2.length) { %>
-        <div class="box-zone"><img src="/images/img11.jpg"><h3 style="font-family: serif;
-            font-size: 18pt;
-            color: blue;
-            text-align: center;"><%= user2[i+2].resname%></h3></div>
-        <% } %>
-        <% if (i+3 < user2.length) { %>
-            <div class="box-zone"><img src="/images/img9.jpg"><h3 style="font-family: serif;
-                font-size: 18pt;
-                color: blue;
-                text-align: center;"><%= user2[i+3].resname%></h3></div>
-            <% } %>
+  <%for(var i=0;i<user2.length;i+=4){%>
+ <div class="box-zone"><img src="/images/img5.jpg"><h3 style="font-family: serif;
+  font-size: 22pt;
+  color: blue;
+  text-align: center;"><%= user2[i].resname%></h3><br><a href='/restaurant<%= user2[i].restaurantid %>'></a></div>
+ <% if (i+1 < user2.length) { %>
+  <div class="box-zone"><img src="/images/img7.jpg"><h3 style="font-family: serif;
+      font-size: 22pt;
+      color: blue;
+      text-align: center;"><%= user2[i+1].resname%></h3><br><a href='/restaurant<%= user2[i+1].restaurantid %>'></a></div>
+  <% } %>
+  <% if (i+2 < user2.length) { %>
+      <div class="box-zone"><img src="/images/img11.jpg"><h3 style="font-family: serif;
+          font-size: 22pt;
+          color: blue;
+          text-align: center;"><%= user2[i+2].resname%></h3><br><a href='/restaurant<%= user2[i+2].restaurantid %>'></a></div>
+      <% } %>
+      <% if (i+3 < user2.length) { %>
+          <div class="box-zone"><img src="/images/img9.jpg"><h3 style="font-family: serif;
+              font-size: 22pt;
+              color: blue;
+              text-align: center;"><%= user2[i+3].resname%></h3><br><a href='/restaurant<%= user2[i+3].restaurantid %>'></a></div>
+          <% } %>
 
-   <%}%>
+ <%}%>
 </div>
 <footer class="zone yellow">Developed by Constant$</footer>
 </div>

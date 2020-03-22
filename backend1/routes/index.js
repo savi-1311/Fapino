@@ -91,7 +91,32 @@ router.get('/home2', (req, res) => {
     else
       res.status(401).send('login for this');
   });
-
+  router.get('/restaurant:restaurantid', (req, res) => {
+    
+            mySqlConnection.query(
+              "SELECT * FROM user2 ",
+              (err, rows) => 
+              {
+                if (err) res.status(500).send(err)
+                else
+                {
+                  mySqlConnection.query(
+                    "SELECT * FROM Menu WHERE restaurantid = ? ",[req.params.restaurantid],
+                    (err, rows) => 
+                    {
+                      if (err) res.status(500).send(err)
+                      else
+                      {
+                      res.status = 200;
+                      res.render('restaurant', {user2 : rows , user1 : req.session.user1, Menu : rows })
+                      }
+                    },)
+                }
+              },)});
+            
+        
+    
+    
 
 
 module.exports = router

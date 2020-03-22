@@ -1,0 +1,10 @@
+.orderinfo
+{
+    padding: 1%;
+    width: 30%;
+    color:teal;
+    align-self: "center";
+    border-color: teal;
+    border-width: 20px;
+    border-radius: 20%;
+}

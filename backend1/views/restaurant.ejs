@@ -1,20 +1,5 @@
 <link rel="stylesheet" type="text/css" href="css/restaurant.css">
-<nav class="zone green sticky">
-    <ul class="main-nav">
-        <li class="resize-icon"><a class="navbar-brand" href="/">
-          <div class="logo-image">
-            <FIGURE>
-                <img src="/images/fapino_text_whitebg2.jpg" alt="FAPINO : A FOOD TRAP" class="img-fluid">
-                <figcaption class="resizethis"><b>FAPINO : A FOOD TRAP</b> </figcaption>
-              </FIGURE>
-          </div>
-    </a></li>
-        <li class="push1"><a href=""><b>HELLO <%= user1.name%></b></a></li>
-        <li class="push2"><a href="/user1/logout"><b>LOGOUT</b></a></li>
-        <li class="push"><a href=""><b>HELP</b></a></li>
-</ul>
-</nav>
-
+<h2><%= user2.resname %></h2>
 <div class="menubox">
     <%for(var i=0;i<Menu.length;i++){%>
    <div class="box-zone">
@@ -25,6 +10,7 @@
         </label>
         <input type="hidden" name="dishname" value="<%= Menu[i].dishname%>">
         <input type="hidden" name="dishprice" value="<%= Menu[i].dishprice%>">
+        <input type="hidden" name="dishno" value="<%= Menu[i].dishno%>">
         <br>
         <input type="submit" value="Add To Cart">
     </form>

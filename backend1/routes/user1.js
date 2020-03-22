@@ -126,11 +126,11 @@ router.post("/register", (req, res) => {
 
     router.post("/cart", (req, res) => {
       if (req.session.user1) {
-        const {dishname ,dishprice, quantity } = req.body
+        const {dishname ,dishprice, quantity, dishno } = req.body
     
-          var sql = `INSERT INTO cart (dishname, dishprice, quantity, customerid) VALUES ?`
+          var sql = `INSERT INTO cart (dishname, dishprice, quantity, dishno ,customerid) VALUES ?`
           const values = [
-            [dishname, dishprice, quantity, req.session.user1.customerid],
+            [dishname, dishprice, quantity, dishno ,req.session.user1.customerid],
           ]
     
           mySqlConnection.query(sql, [values], err => {
@@ -142,22 +142,7 @@ router.post("/register", (req, res) => {
       } else res.status(401).send("Login to post")
     })
     
-    // router.get("/cart", (req, res) => {
-    //   if (req.session.user1) {
-    //     mySqlConnection.query(
-    //       "SELECT * FROM cart WHERE customerid = ?",
-    //       [req.session.user1.customerid],
-    //       (err, rows) => {
-    //         if (err) res.status(500).send(err)
-    //         else{
-    //         req.session.cart = rows
-    //         res.status = 200;
-    //         res.render('Menu', {cart : rows})
-    //         }
-    //       },
-    //     )
-    //   } else res.status(401).send("login to view")
-    // })
+
 
     router.get('/cart', (req, res) => {
       if (req.session.user1)
@@ -170,7 +155,7 @@ router.post("/register", (req, res) => {
             else
             {
               mySqlConnection.query(
-                "SELECT * FROM cart WHERE customerid = ?",[req.session.user1.customerid],
+                "SELECT orderid ,dishprice, quantity, dishname ,(dishprice*quantity) as dishtotal  from cart WHERE customerid = ?",[req.session.user1.customerid],
                 (err, rows) => 
                 {
                   if (err) res.status(500).send(err)
@@ -186,5 +171,62 @@ router.post("/register", (req, res) => {
           else res.status(401).send("login to view")
         })
 
+        router.get("/cart/delete/:orderid", (req, res) => {
+          if (req.session.user1) {
+            mySqlConnection.query(
+              "SELECT * FROM cart WHERE orderid = ? AND customerid = ?",
+              [req.params.orderid, req.session.user1.customerid],
+              (err, rows) => {
+                if (err) res.status(500).send(err)
+                else if (!rows.length) {
+                  res.status = 401;
+                  res.redirect('cart')
+                }
+                else {
+                  mySqlConnection.query(
+                    "DELETE FROM cart WHERE orderid = ?",
+                    [req.params.orderid],
+                    (err) => {
+                      if (err) res.status(500).send(err)
+                      else {
+                        res.status = 200;
+                        res.redirect('/user1/cart');
+                      }
+                    },
+                  )
+                }
+              },
+            )
+          } else {
+            res.send("login to Delete")
+          }
+        })
+        router.post("/update", (req, res) => {
+          if (req.session.user1) {
+            const { name, phone } = req.body
+            mySqlConnection.query(
+              "UPDATE user1 SET name=?, address=? WHERE customerid = ?",
+              [name, address, req.session.user1.customerid],
+              (err, rows) => {
+                if (err) throw err
+                req.session.user1 = { ...req.session.user1, ...req.body }
+                res.send(req.session.user1)
+              },
+            )
+          } else res.send("please login")
+        })
+
+        router.get("/cart/pay",(req,res) => {
+          if(req.session.user1){
+          mySqlConnection.query(
+            "SELECT dishname, orderid, SUM(dishprice*quantity) AS carttotal FROM cart WHERE customerid = ?",[req.session.user1.customerid],(err,rows)=>
+            {
+              if(err) throw err
+              res.render('pay',{user1 : req.session.user1, cart : rows})
+            }
+          )
+          }
+          else res.send("Please Login")
+        })
 
 module.exports = router 

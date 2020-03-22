@@ -28,7 +28,7 @@ app.use('/user2', require('./routes/user2.js'));
 
 
 app.get('*', (req, res) => {
-  res.status(404).send('You did something wrong!');
+  res.status(404).send('You did something wrong abc!');
 });
 
 const PORT = 4000;

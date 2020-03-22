@@ -1,0 +1,18 @@
+<link rel="stylesheet" href="/css/cart.css">
+<h1>Payment Details for <%= user1.name %></h1><br>
+<button onclick="goBack()">Order More</button>
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+    <div id="Order-details">
+        <h2>Total Amount To Pay = <%= cart[0].carttotal %></h2>
+        <br>
+        <br>
+        <button>PAY <%= cart[0].carttotal %></button>
+        
+    </div>
+      
+    
