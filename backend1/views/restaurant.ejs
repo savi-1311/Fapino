@@ -4,7 +4,7 @@
     <%for(var i=0;i<Menu.length;i++){%>
    <div class="box-zone">
     <form method="post" action="/user1/cart" id="register1">
-    <h3> Dish Name: <%= Menu[i].dishname%> </br>  Price: <%= Menu[i].dishprice%></h3>
+    <h3> Dish Name: <%= Menu[i].dishname%> </br>  Price: <%= Menu[i].dishprice%></br> Rating: <%= Menu[i].ratingdish%>/5</h3>
     <label>Quantity:
         <input type="number" value="0" name="quantity">
         </label>

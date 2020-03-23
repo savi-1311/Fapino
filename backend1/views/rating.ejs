@@ -1,6 +1,8 @@
 <h3>Dish Name: <%= Menu[0].dishname %></h3>
 <h3>Dish Price: <%= Menu[0].dishprice %></h3>
-<form method="post" action="/user1/cart/pay/rating<%= Menu[0].dishno%>" id="rating"></form>
-    <lable>0<input type="range" value="5" name="rating" min="0" max = "5">5</lable><br>
+<form method="post" action="/user1/cart/pay/rating<%= Menu[0].dishno%>" id="rating">
+    <lable><input type="number" value="5" name="rating" min="0" max = "5"></lable><br>
     <input type="submit" value="RATE">
 </form>
+<br>
+<a href="/user1/cart/pay/ratinglist"><button>Go Back</button></a>

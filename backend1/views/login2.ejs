@@ -1,20 +1,25 @@
-<form method="post" action="/user2/login" id="login2">
-    <div class="loginbox">
-    <!-- <img src="../assets/user.jpg" > -->
-    <h1>Welcome Back!<br>Login</h1>
+<link rel="stylesheet" type="text/css" href="/css/login.css">
+<button><b>WELCOME Restaurant owner!</b></button>
+<form method="post" action="user2/login" id="login2">
+    <div class="imgcontainer">
+        <img src="/images/logon_img2.JPG" alt="Avatar" class="loginimg">
+      </div>
+    <div class="container">
     
-
-        <label>Email:
+        <label><B>Email:</B>
             <input type="email" name="email" placeholder="Enter Email" required>
         </label><br>
 
 
         
-        <label>Password:
+        <label><B>Password:</B>
             <input type="Password" name="password" placeholder="Enter Password" required>
         </label><br>
         
-        <input type="submit">
+        <button type="submit"><b>Login</b></button> 
     
     </div>
+    <div class="container" style="background-color:#f1f1f1">
+        <button type="button" class="cancelbtn">Cancel</button>
+        </div>
 </form>

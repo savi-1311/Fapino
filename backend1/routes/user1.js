@@ -265,28 +265,46 @@ router.post("/register", (req, res) => {
         router.post("/cart/pay/rating:dishno",(req,res) => {
           if(req.session.user1){
             const {rating} = req.body
-            var sql = `INSERT INTO ratings (dishno, rating) VALUES = ? `
-            const values = [[req.params.dishno, rating]];
+            var sql = `INSERT INTO ratings (dishno, rating) VALUES ?`
+            const values = [
+              [req.params.dishno, rating],
+            ]
             mySqlConnection.query(sql, [values], function(err) {
     
-              if (err) res.status(500).send(err);
+              if (err) res.status(500).send(err)
             else{
-            res.status=200;
-            var sql1 = `INSERT INTO Menu(ratingdish) Select AVG(rating) FROM ratings where dishno = ? `
-            const values = [[req.params.dishno]];
-            mySqlConnection.query(sql1, [values], function(err) {
+             mySqlConnection.query("SELECT AVG(rating) AS avgrate FROM ratings WHERE dishno = ?",[req.params.dishno], (err , rows)=> {
     
-              if (err) res.status(500).send(err);
+              if (err) res.status(500).send(err)
               
               else{ 
-              res.status(200).send("sucessfully rated");
+              mySqlConnection.query(`UPDATE Menu SET ratingdish = ? WHERE dishno = ?`,[ rows[0].avgrate, req.params.dishno], (err , result)=> {
+                if (err) res.status(500).send(err)
+                else{
+                  res.status(200).redirect("/user1/cart/pay/ratinglist")
+                }
+              })
               }
               
-              });}
+              })}
           })}
           else res.send("Please Login")
         })
 
+        router.post("/cart/pay/complete", (req, res) => {
+          if (req.session.user1) 
+          {
+            var sql = "TRUNCATE TABLE cart";
+            mySqlConnection.query(sql, function (err){
+              if(err) throw (err)
+              else{
+                res.redirect("/home2")
+              }
+            }
+            )
+          } 
+          else res.send("You Are Not Logged In")
+        })
 
 
 module.exports = router 

@@ -1,21 +1,25 @@
-<a href='/user2/login'><button>I'm A Restaurant Owner!</button></a><br>
+<link rel="stylesheet" type="text/css" href="/css/login.css">
+<a href='/user2/login'><button><b>I'm A Restaurant Owner!</b></button></a><br>
     <form method="post" action="/user1/login" id="login1">
-		<div class="loginbox">
-		<!-- <img src="../assets/user.jpg" > -->
-        <h1>Welcome Back!<br>Login</h1>
-        
-
-            <label>Email:
+        <div class="imgcontainer">
+            <img src="/images/LOGIN_IMG.JPG" alt="Avatar" class="loginimg">
+          </div>
+		<div class="container">
+		
+            <label><B>Email:</B>
                 <input type="email" name="email" placeholder="Enter Email" required>
             </label><br>
 
 
 			
-			<label>Password:
+			<label><B>Password:</B>
                 <input type="Password" name="password" placeholder="Enter Password" required>
             </label><br>
 			
-            <input type="submit">
+            <button type="submit"><b>Login</b></button> 
 		
         </div>
+        <div class="container" style="background-color:#f1f1f1">
+            <button type="button" class="cancelbtn">Cancel</button>
+            </div>
 </form>
