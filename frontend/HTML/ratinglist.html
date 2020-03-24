@@ -1,0 +1,23 @@
+
+    <div id="Order-details">
+        <!-- <%for(var i=0;i<cart.length;i++){%> -->
+        <div class ="orderinfo">
+            <h2>1. French Fries</h2>
+        <!-- <h2><%= i+1 %>.  <%= cart[i].dishname %></h2> -->
+        <a href="/user1/cart/pay/rating<%= cart[i].dishno %>"><button>RATE</button></a>
+            </div>
+            <br>
+        <!-- <% } %> -->
+        <div class ="orderinfo">
+            <h2>2. Red Sauce Pasta</h2>
+        <!-- <h2><%= i+1 %>.  <%= cart[i].dishname %></h2> -->
+        <a href="/user1/cart/pay/rating<%= cart[i].dishno %>"><button>RATE</button></a>
+            </div>
+            <br>
+        <br>
+        <form method="post" action="/user1/cart/pay/complete" id="complete">
+            <input type="submit" value="ORDER COMPLETE">
+        </form>
+    </div>
+      
+    

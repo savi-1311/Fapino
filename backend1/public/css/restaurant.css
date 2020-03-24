@@ -90,15 +90,6 @@ img {
     cursor: pointer;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
   }
-  #Now a:hover{
-    background-color: limegreen;
-    color: white;
-    font-size: 25px;
-    padding: 10px 24px;
-    border : 2px solid white;
-    cursor: pointer;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-  }
   
   
   .sticky {

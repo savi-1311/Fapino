@@ -15,7 +15,45 @@ function goBack() {
         <br>
         <br>
     </div>
-    <a href="/user1/cart/pay/ratinglist"><button class="button">PAY <%= cart[0].carttotal %>/-</button></a>
+    <button class="button" id="myBtn">PAY <%= cart[0].carttotal %>/-</button>
+    </div>
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close">&times;</span>
+          <h2>YAY! Order Received</h2>
+        </div>
+        <div class="modal-body">
+          <a href="/user1/cart/pay/ratinglist"><button class="button">Rate The Food</button></a>
+          <form method="post" action="/user1/cart/pay/complete" id="complete">
+            <input type="submit" value="ORDER COMPLETE">
+        </form>
+        </div>
+      </div>
+    
     </div>
 
+  <script>
+      var modal = document.getElementById("myModal");
+      
+      var btn = document.getElementById("myBtn");
+      
+      var span = document.getElementsByClassName("close")[0];
+      
+      btn.onclick = function() {
+        modal.style.display = "block";
+      }
+      
+      span.onclick = function() {
+        modal.style.display = "none";
+      }
+      
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+      </script>
     
