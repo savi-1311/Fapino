@@ -1,27 +1,31 @@
 <link rel="stylesheet" href="/css/cart.css">
-<h1>Order Details for <%= user1.name %></h1><br>
-<button onclick="goBack()">Order More</button>
-
+<div class = "Order-details">
+<button class="button" onclick="goBack()">Order More</button>
+<h2>Order Details for <%= user1.name %></h2><br>
+<img src="/images/img27.jpg"><br>
 <script>
 function goBack() {
   window.history.back();
 }
 </script>
-    <div id="Order-details">
+<%if (cart.length === 0) { %>
+    <h2>Oops Your Cart Is Empty!</h2>
+    <%} else { %>
+    
         <%for(var i=0;i<cart.length;i++){%>
-            <div class ="orderinfo">
-        <h2><%= i+1 %>.  <%= cart[i].dishname %></h2>
+        <div class ="orderinfo">
+        <h3><%= i+1 %>.  <%= cart[i].dishname %></h3>
         <h3>Price Each : <%= cart[i].dishprice%></h3>
         <h3>Quantity : <%= cart[i].quantity%></h3>
         <h3>Total : <%= cart[i].dishtotal%></h3>
         <br>
-        <h3>           </h3>
-        <a href="/user1/cart/delete/<%= cart[i].orderid %>"><button>DELETE</button></a>
-            </div>
-            <br>
+        <a href="/user1/cart/delete/<%= cart[i].orderid %>"><button class="button">DELETE</button></a>
+        </div>
+        <br>
         <% } %>
         <br>
-        <a href="/user1/cart/pay"><button>PAY NOW</button></a>
+        <a href="/user1/cart/pay"><button class="button">PAY NOW</button></a>
+        <% } %>
         
     </div>
       

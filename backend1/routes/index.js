@@ -94,7 +94,7 @@ router.get('/home2', (req, res) => {
   router.get('/restaurant:restaurantid', (req, res) => {
     
             mySqlConnection.query(
-              "SELECT * FROM user2 ",
+              "SELECT * FROM user2 WHERE restaurantid = ? ",[req.params.restaurantid],
               (err, rows) => 
               {
                 if (err) res.status(500).send(err)

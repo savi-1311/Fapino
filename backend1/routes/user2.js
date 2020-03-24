@@ -78,7 +78,7 @@ router.post("/register", (req, res) => {
     
     if (err) res.status(500).send(err);
     
-    else res.status(200).send("Registered successfully")
+    else res.status(200).redirect('/dashboard2?login+success');
     
     });
     

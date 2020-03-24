@@ -1,12 +1,20 @@
-<link rel="stylesheet" type="text/css" href="css/restaurant.css">
-<h2><%= user2.resname %></h2>
+<link rel="stylesheet" type="text/css" href="/css/restaurant.css">
+<div id="navbar">
+    <a href="#starter">Starters</a>
+    <a href="#Main Course">Main Course</a>
+    <a href="#Dessert">Dessert And Refreshments</a>
+    <a href="#Order" id="Now">Order Now!</a>
+  </div>
 <div class="menubox">
-    <%for(var i=0;i<Menu.length;i++){%>
+    <h2 id="starter">Starters: </h2>
+    <%for(var i=0;i<Menu.length ;i++){%>
+        <%if (Menu[i].category==="starter") { %>
    <div class="box-zone">
     <form method="post" action="/user1/cart" id="register1">
+        <img src="/images/img23.jpg">
     <h3> Dish Name: <%= Menu[i].dishname%> </br>  Price: <%= Menu[i].dishprice%></br> Rating: <%= Menu[i].ratingdish%>/5</h3>
     <label>Quantity:
-        <input type="number" value="0" name="quantity">
+        <input type="number" value="1" min="0" name="quantity">
         </label>
         <input type="hidden" name="dishname" value="<%= Menu[i].dishname%>">
         <input type="hidden" name="dishprice" value="<%= Menu[i].dishprice%>">
@@ -16,9 +24,65 @@
     </form>
   </div>
  <% } %>
- <br>
- <a href='/user1/cart'><button>ORDER NOW</button></a><br>
+ <% } %>
+ <br><br>
+ <h2 id="Main Course">Main Course:</h2>
+ <%for(var i=0;i<Menu.length ;i++){%>
+    <%if (Menu[i].category==="main course") { %>
+<div class="box-zone">
+ <form method="post" action="/user1/cart" id="register1">
+    <img src="/images/img24.jpg">
+ <h3> Dish Name: <%= Menu[i].dishname%> </br>  Price: <%= Menu[i].dishprice%></br> Rating: <%= Menu[i].ratingdish%>/5</h3>
+ <label>Quantity:
+     <input type="number" value="1" min="0" name="quantity">
+     </label>
+     <input type="hidden" name="dishname" value="<%= Menu[i].dishname%>">
+     <input type="hidden" name="dishprice" value="<%= Menu[i].dishprice%>">
+     <input type="hidden" name="dishno" value="<%= Menu[i].dishno%>">
+     <br>
+     <input type="submit" value="Add To Cart">
+ </form>
 </div>
+<% } %>
+<% } %>
+<br><br>
+<h2 id="Dessert">Dessert And Refreshments: </h2>
+<%for(var i=0;i<Menu.length ;i++){%>
+    <%if (Menu[i].category==="dessert") { %>
+<div class="box-zone">
+<form method="post" action="/user1/cart" id="register1">
+    <img src="/images/img26.jpg">
+<h3> Dish Name: <%= Menu[i].dishname%> </br>  Price: <%= Menu[i].dishprice%></br> Rating: <%= Menu[i].ratingdish%>/5</h3>
+<label>Quantity:
+    <input type="number" value="1" min="0" name="quantity">
+    </label>
+    <input type="hidden" name="dishname" value="<%= Menu[i].dishname%>">
+    <input type="hidden" name="dishprice" value="<%= Menu[i].dishprice%>">
+    <input type="hidden" name="dishno" value="<%= Menu[i].dishno%>">
+    <br>
+    <input type="submit" value="Add To Cart">
+</form>
+</div>
+<% } %>
+<% } %>
+<br><br>
+<a href='/user1/cart'><button class="button" id="Order">ORDER NOW</button></a><br>
+</div>
+ 
 <br>
 
-<!-- <script type="text/javascript" src="/script/cart.js"></script> -->
+<script>
+    window.onscroll = function() {myFunction()};
+    
+    var navbar = document.getElementById("navbar");
+    var sticky = navbar.offsetTop;
+    
+    function myFunction() {
+      if (window.pageYOffset >= sticky) {
+        navbar.classList.add("sticky")
+      } else {
+        navbar.classList.remove("sticky");
+      }
+    }
+    </script>
+

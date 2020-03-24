@@ -1,18 +1,21 @@
-<link rel="stylesheet" href="/css/cart.css">
-<h1>Payment Details for <%= user1.name %></h1><br>
-<button onclick="goBack()">Order More</button>
+<link rel="stylesheet" href="/css/pay.css">
+<div class="Box">
+<h2>Payment Details for <%= user1.name %></h2><br>
+<button class="button" onclick="goBack()">Order More</button><br>
 
 <script>
 function goBack() {
   window.history.back();
 }
 </script>
+<br>
     <div id="Order-details">
-        <h2>Total Amount To Pay = <%= cart[0].carttotal %></h2>
+      <img src="/images/delivery.jpg">
+        <h2>Total Amount To Pay = Rs. <%= cart[0].carttotal %></h2>
         <br>
         <br>
-        <a href="/user1/cart/pay/ratinglist"><button>PAY <%= cart[0].carttotal %></button></a>
-        
     </div>
-      
+    <a href="/user1/cart/pay/ratinglist"><button class="button">PAY <%= cart[0].carttotal %>/-</button></a>
+    </div>
+
     

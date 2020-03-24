@@ -12,9 +12,11 @@
               </FIGURE>
           </div>
     </a></li>
+</a></li>
         <li class="push1"><a href="/user1/cart"><b>CART</b></a></li>
         <li class="push2"><a href="/user1/logout"><b>LOGOUT</b></a></li>
         <li class="push"><b>HELLO <%= user1.name%></b></li>
+        <li class="push"><b>Address: <%= user1.address%></b></li>
 </ul>
 </nav>
 <!-- Slideshow container -->
@@ -57,7 +59,7 @@
    <div class="box-zone"><img src="/images/img5.jpg"><h3 style="font-family: serif;
     font-size: 22pt;
     color: blue;
-    text-align: center;"><%= user2[i].resname%></h3><br><a href='/home2/restaurant<%= user2[i].restaurantid %>'><button>MENU</button></a></div>
+    text-align: center;"><%= user2[i].resname%></h3><br><a href='/home2/restaurant<%= user2[i+1].restaurantid %>'><button>MENU</button></a></div>
    <% if (i+1 < user2.length) { %>
     <div class="box-zone"><img src="/images/img7.jpg"><h3 style="font-family: serif;
         font-size: 22pt;
@@ -79,6 +81,6 @@
 
    <%}%>
 </div>
-<footer class="zone yellow">Developed by Shashwat Kumar</footer>
+<footer class="zone yellow">Developed by ConstantS</footer>
 </div>
 <script type="text/javascript" src="/script/script.js"></script>

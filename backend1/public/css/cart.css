@@ -1,10 +1,71 @@
-.orderinfo
-{
-    padding: 1%;
-    width: 30%;
-    color:teal;
-    align-self: "center";
-    border-color: teal;
-    border-width: 20px;
-    border-radius: 20%;
+body{
+    background: url('/images/bg8.jpg') no-repeat;
+	height:100%;
+	background-attachment: fixed; 
+    background-position: center;
+	background-size: cover;
+    text-align: center;
 }
+
+
+.Order-details{
+    display: inline-block;
+    top: 65%;
+    width: 60%;
+    padding: 2%;
+    background-color:teal;
+    background-image: linear-gradient(mediumseagreen, yellowgreen);
+    text-align: center;
+    align-items: center;
+    border-radius: 1%;
+}
+
+.orderinfo{
+    margin: 1%;
+    padding: 2%;
+    display: inline-block;
+	width: 30%;
+	min-width: 350px;
+	background: white;
+	color: blue;
+	top:65%;
+    left:50%;
+    border-radius: 2.5%;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+h2 {
+    color: white;
+    font-size: 30px;
+    padding: 10px 24px;
+    border : 2px solid white;
+}
+.button{
+    background-color: darkcyan;
+    font-size: 20px;
+    color: white;
+    font-family: sans-serif;
+    padding: 10px 24px;
+    border : 2px solid white;
+    border-radius: 2.5%;
+}
+input[type=submit]{
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-weight: bold;
+}
+img {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 150px;
+  }
+
+.button:hover {
+    cursor: pointer;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+  }
