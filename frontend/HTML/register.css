@@ -9,7 +9,7 @@ form {
 
   
   /* Full-width inputs */
-  input[type=email], input[type=password] {
+  input[type=email], input[type=password] , input[type=text] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -44,9 +44,9 @@ form {
   /* Center the avatar image inside this container */
   .loginimg {
     margin: 24px 0 24px 520px;
-    max-width : 30%;
+    max-width : 35%;
     /* height : 40%; */
-    border-radius : 25px
+    /* border-radius : 25px */
     
 }
 
@@ -64,6 +64,7 @@ form {
   .heading{
     text-align : center;
   }
+  
   /* The "Forgot password" text */
   /* span.psw {
     float: right;
