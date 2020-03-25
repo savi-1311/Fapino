@@ -15,6 +15,11 @@ router.get('/', (req, res) =>
       }
     },)
 });
+
+router.get('/loginerror', (req, res) => 
+{
+  res.render('loginerror')
+});
 router.get('/home2', (req, res) => {
     if (req.session.user1)
     {
@@ -32,8 +37,15 @@ router.get('/home2', (req, res) => {
                 if (err) res.status(500).send(err)
                 else
                 {
-                res.status = 200;
-                res.render('home2', {user2 : rows , user1 : req.session.user1})
+                  mySqlConnection.query(
+                    "SELECT * FROM cart WHERE customerid = ?",[req.session.user1.customerid],(err,rows1) =>{
+                      if(err) res.status(500).send(err)
+                      else{
+                        res.status = 200;
+                        res.render('home2', {user2 : rows , user1 : req.session.user1, cart : rows1})
+                      }
+                    }
+                  )
                 }
               },)
             }
@@ -65,8 +77,8 @@ router.get('/home2', (req, res) => {
           else
           {
             mySqlConnection.query(
-              "SELECT * FROM user2 ",
-              (err, rows) => 
+              "SELECT * FROM user2 WHERE restaurantid = ? ",[req.params.restaurantid],
+              (err, rows1) => 
               {
                 if (err) res.status(500).send(err)
                 else
@@ -79,7 +91,7 @@ router.get('/home2', (req, res) => {
                       else
                       {
                       res.status = 200;
-                      res.render('restaurant', {user2 : rows , user1 : req.session.user1, Menu : rows })
+                      res.render('restaurant', {user2 : rows1 , user1 : req.session.user1, Menu : rows })
                       }
                     },)
                 }
@@ -95,7 +107,7 @@ router.get('/home2', (req, res) => {
     
             mySqlConnection.query(
               "SELECT * FROM user2 WHERE restaurantid = ? ",[req.params.restaurantid],
-              (err, rows) => 
+              (err, rows1) => 
               {
                 if (err) res.status(500).send(err)
                 else
@@ -108,7 +120,7 @@ router.get('/home2', (req, res) => {
                       else
                       {
                       res.status = 200;
-                      res.render('restaurant', {user2 : rows , user1 : req.session.user1, Menu : rows })
+                      res.render('restaurant', {user2 : rows1 , user1 : req.session.user1, Menu : rows })
                       }
                     },)
                 }

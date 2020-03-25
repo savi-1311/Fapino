@@ -151,7 +151,7 @@ router.post("/register", (req, res) => {
             else
             {
             res.status = 200;
-            res.render('Menu', {Menu : rows})
+            res.render('Menu', {Menu : rows, user2 : req.session.user2})
             }
           },
         )

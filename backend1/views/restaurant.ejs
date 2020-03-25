@@ -1,9 +1,12 @@
 <link rel="stylesheet" type="text/css" href="/css/restaurant.css">
-<div id="navbar">
+  <div class="image-container">
+    <div class="text"><%= user2[0].resname %></div>
+  </div>
+  <div id="navbar">
     <a href="#starter">Starters</a>
     <a href="#Main Course">Main Course</a>
     <a href="#Dessert">Dessert And Refreshments</a>
-    <a href="#Order" id="Now">Order Now!</a>
+    <a href="#Order" class="Now">Order Now!</a>
   </div>
 <div class="menubox">
     <h2 id="starter">Starters: </h2>
@@ -11,10 +14,14 @@
         <%if (Menu[i].category==="starter") { %>
    <div class="box-zone">
     <form method="post" action="/user1/cart" id="register1">
-        <img src="/images/img23.jpg">
-    <h3> Dish Name: <%= Menu[i].dishname%> </br>  Price: <%= Menu[i].dishprice%></br> Rating: <%= Menu[i].ratingdish%>/5</h3>
-    <label>Quantity:
-        <input type="number" value="1" min="0" name="quantity">
+        <img src="/images/img8.jpg">
+    <h3> <%= Menu[i].dishname%> </br>  Price: <%= Menu[i].dishprice%></br> Rating: <%= Menu[i].ratingdish%>/5</h3>
+    <label><h3>Quantity:</h3>
+      <div class="input-group">
+        <input type="button" value="-" class="button-minus" data-field="quantity">
+        <input type="number" step="1" max="" value="1" name="quantity" class="quantity-field">
+        <input type="button" value="+" class="button-plus" data-field="quantity">
+      </div>
         </label>
         <input type="hidden" name="dishname" value="<%= Menu[i].dishname%>">
         <input type="hidden" name="dishprice" value="<%= Menu[i].dishprice%>">
@@ -31,10 +38,14 @@
     <%if (Menu[i].category==="main course") { %>
 <div class="box-zone">
  <form method="post" action="/user1/cart" id="register1">
-    <img src="/images/img24.jpg">
- <h3> Dish Name: <%= Menu[i].dishname%> </br>  Price: <%= Menu[i].dishprice%></br> Rating: <%= Menu[i].ratingdish%>/5</h3>
- <label>Quantity:
-     <input type="number" value="1" min="0" name="quantity">
+    <img src="/images/img4 (2).jpg">
+ <h3><%= Menu[i].dishname%> </br>  Price: <%= Menu[i].dishprice%></br> Rating: <%= Menu[i].ratingdish%>/5</h3>
+ <label><h3>Quantity:</h3>
+  <div class="input-group">
+    <input type="button" value="-" class="button-minus" data-field="quantity">
+    <input type="number" step="1" max="" value="1" name="quantity" class="quantity-field">
+    <input type="button" value="+" class="button-plus" data-field="quantity">
+  </div>
      </label>
      <input type="hidden" name="dishname" value="<%= Menu[i].dishname%>">
      <input type="hidden" name="dishprice" value="<%= Menu[i].dishprice%>">
@@ -51,10 +62,14 @@
     <%if (Menu[i].category==="dessert") { %>
 <div class="box-zone">
 <form method="post" action="/user1/cart" id="register1">
-    <img src="/images/img26.jpg">
-<h3> Dish Name: <%= Menu[i].dishname%> </br>  Price: <%= Menu[i].dishprice%></br> Rating: <%= Menu[i].ratingdish%>/5</h3>
-<label>Quantity:
-    <input type="number" value="1" min="0" name="quantity">
+    <img src="/images/img30.jpg">
+<h3><%= Menu[i].dishname%> </br>  Price: <%= Menu[i].dishprice%></br> Rating: <%= Menu[i].ratingdish%>/5</h3>
+<label><h3>Quantity:</h3>
+  <div class="input-group">
+    <input type="button" value="-" class="button-minus" data-field="quantity">
+    <input type="number" step="1" max="" value="1" name="quantity" class="quantity-field">
+    <input type="button" value="+" class="button-plus" data-field="quantity">
+  </div>
     </label>
     <input type="hidden" name="dishname" value="<%= Menu[i].dishname%>">
     <input type="hidden" name="dishprice" value="<%= Menu[i].dishprice%>">
@@ -66,7 +81,7 @@
 <% } %>
 <% } %>
 <br><br>
-<a href='/user1/cart'><button class="button" id="Order">ORDER NOW</button></a><br>
+<a href='/user1/cart'><button class="Now" id="Order">ORDER NOW</button></a><br>
 </div>
  
 <br>
@@ -84,5 +99,39 @@
         navbar.classList.remove("sticky");
       }
     }
+
+    function incrementValue(e) {
+  e.preventDefault();
+  var fieldName = $(e.target).data('field');
+  var parent = $(e.target).closest('div');
+  var currentVal = parseInt(parent.find('input[name=' + fieldName + ']').val(), 10);
+
+  if (!isNaN(currentVal)) {
+    parent.find('input[name=' + fieldName + ']').val(currentVal + 1);
+  } else {
+    parent.find('input[name=' + fieldName + ']').val(0);
+  }
+}
+
+function decrementValue(e) {
+  e.preventDefault();
+  var fieldName = $(e.target).data('field');
+  var parent = $(e.target).closest('div');
+  var currentVal = parseInt(parent.find('input[name=' + fieldName + ']').val(), 10);
+
+  if (!isNaN(currentVal) && currentVal > 0) {
+    parent.find('input[name=' + fieldName + ']').val(currentVal - 1);
+  } else {
+    parent.find('input[name=' + fieldName + ']').val(0);
+  }
+}
+
+$('.input-group').on('click', '.button-plus', function(e) {
+  incrementValue(e);
+});
+
+$('.input-group').on('click', '.button-minus', function(e) {
+  decrementValue(e);
+});
     </script>
 

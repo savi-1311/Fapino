@@ -17,6 +17,9 @@ form {
     border: 1px solid #ccc;
     box-sizing: border-box;
   }
+  .heading{
+    text-align : center;
+  }
   
   /* Set a style for all buttons */
   button {

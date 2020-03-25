@@ -120,7 +120,7 @@ router.post("/register", (req, res) => {
           res.status(200).redirect('/')
         })
       } else {
-        res.status(400).send("you are not logged in")
+        res.status(400).redirect("/loginerror")
       }
     })
 
@@ -139,7 +139,7 @@ router.post("/register", (req, res) => {
             res.status(200).redirect('back')
           })
       
-      } else res.status(401).send("Login to post")
+      } else res.status(401).redirect("/loginerror")
     })
     
 
@@ -168,7 +168,7 @@ router.post("/register", (req, res) => {
               }
             },)
           }
-          else res.status(401).send("login to view")
+          else res.redirect("/loginerror")
         })
 
         router.get("/cart/delete/:orderid", (req, res) => {
@@ -198,7 +198,7 @@ router.post("/register", (req, res) => {
               },
             )
           } else {
-            res.send("login to Delete")
+            res.redirect("/loginerror")
           }
         })
         router.post("/update", (req, res) => {
@@ -213,7 +213,7 @@ router.post("/register", (req, res) => {
                 res.send(req.session.user1)
               },
             )
-          } else res.send("please login")
+          } else res.rendirect("/loginerror")
         })
 
         router.get("/cart/pay",(req,res) => {
@@ -226,7 +226,7 @@ router.post("/register", (req, res) => {
             }
           )
           }
-          else res.send("Please Login")
+          else res.redirect("/loginerror")
         })
 
         router.get("/cart/pay/ratinglist",(req,res) => {
@@ -242,7 +242,7 @@ router.post("/register", (req, res) => {
             }
           )
           }
-          else res.send("Please Login")
+          else res.redirect("/loginerror")
         })
 
         router.get("/cart/pay/rating:dishno",(req,res) => {
@@ -259,7 +259,7 @@ router.post("/register", (req, res) => {
             }
               
           
-          else res.send("Please Login")}
+          else res.redirect("/loginerror")}
         )
 
         router.post("/cart/pay/rating:dishno",(req,res) => {
@@ -288,14 +288,13 @@ router.post("/register", (req, res) => {
               
               })}
           })}
-          else res.send("Please Login")
+          else res.redirect("/loginerror")
         })
 
         router.post("/cart/pay/complete", (req, res) => {
           if (req.session.user1) 
           {
-            var sql = "TRUNCATE TABLE cart";
-            mySqlConnection.query(sql, function (err){
+            mySqlConnection.query("DELETE FROM cart WHERE customerid = ?", [req.session.user1.customerid] ,(err,rows) =>{
               if(err) throw (err)
               else{
                 res.redirect("/home2")
@@ -303,7 +302,7 @@ router.post("/register", (req, res) => {
             }
             )
           } 
-          else res.send("You Are Not Logged In")
+          else res.redirect("/loginerror")
         })
 
 
