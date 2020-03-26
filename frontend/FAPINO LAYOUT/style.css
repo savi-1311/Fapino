@@ -78,7 +78,7 @@ a {
     font-size : 0.7em ;
     border-radius: 5px;
     transition-duration: 0.4s;
-    hover : pointer;
+    cursor : pointer;
     
 }
 
@@ -89,7 +89,7 @@ a {
     font-size : 0.7em;
     border-radius: 5px;
     transition-duration: 0.4s;
-    hover : pointer;
+    cursor : pointer;
 }   
 
 
