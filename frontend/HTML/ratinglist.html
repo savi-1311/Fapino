@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Layout Master</title>
+  <link rel="stylesheet" type="text/css" href="ratinglist.css">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="zone green sticky">
+        <ul class="main-nav">
+            <li class="resize-icon"><a class="navbar-brand" href="/">
+              <div class="logo-image">
+                <FIGURE>
+                    <img src="fapino_text_whitebg2.jpg" alt="FAPINO : A FOOD TRAP" class="img-fluid">
+                    <figcaption class="resizethis"><b>FAPINO : A FOOD TRAP</b> </figcaption>
+                  </FIGURE>
+              </div>
+        </li>
+            <li class="push1"><a href=""><b>SIGNUP</b></a></li>
+            <li class="push2"><a href=""><b>LOGIN</b></a></li>
+            <li class="push"><a href=""><b>HELP</b></a></li>
+    </ul>
+    </nav>
+    <div class="green zone flex-container">
+        <!-- <%for(var i=0;i<cart.length;i++){%> -->
+        <div class ="orderinfo">
+            <h2>1. French Fries</h2>
+        <!-- <h2><%= i+1 %>.  <%= cart[i].dishname %></h2> -->
+        </div>
+        <a href="/user1/cart/pay/rating<%= cart[i].dishno %>"><button class="button">RATE</button></a>
+         
+        <!-- <% } %> -->
+        <div class ="orderinfo">
+            <h2>2. Red Sauce Pasta</h2>
+        <!-- <h2><%= i+1 %>.  <%= cart[i].dishname %></h2> -->
+        </div>
+        <a href="/user1/cart/pay/rating<%= cart[i].dishno %>"><button class="button">RATE</button></a>
+        
+        <form method="post" action="/user1/cart/pay/complete" id="complete">
+            <input type="submit" value="ORDER COMPLETE" class="ordercomplete">
+        </form>
+    </div>
+</body>
+    
