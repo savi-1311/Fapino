@@ -7,7 +7,7 @@ let user1
 router.get("/register", (req, res) => {
   if (!req.session.user1) {
     res.status(200).render('Register1')
-  } else res.status(401).send("Not possible as you are logged in already")
+  } else res.status(401).render("logout1",{user1:req.session.user1})
 })
 
 
@@ -51,7 +51,9 @@ router.post("/register", (req, res) => {
     
     if (err) res.status(500).send(err);
     
-    else if (rows.length) errors.push({ msg: "Email already exists" });
+    else if (rows.length){
+      res.redirect("/emailexists1");
+    }
     
     else if (errors.length > 0) {
     
@@ -73,7 +75,8 @@ router.post("/register", (req, res) => {
     
     if (err) res.status(500).send(err);
     
-    else res.status(200).redirect('/')
+    else 
+    {res.status(200).redirect('/')}
     
     });
     
@@ -98,11 +101,11 @@ router.post("/register", (req, res) => {
             if (result) {
               req.session.user1 = user1
               res.status(200).redirect('/home2?login+sucess')
-            } else {
-              res.status(400).send("pwd incorrect")
+            } else{
+              res.redirect("/pwdincorrect1");
             }
           } else {
-            res.status(400).send("email doesnot exist")
+            res.redirect("/emailnot1");
           }
         },
       )
@@ -111,7 +114,7 @@ router.post("/register", (req, res) => {
     router.get("/login", (req, res) => {
       if (!req.session.user1)
         res.status(200).render('login1')
-      else res.status(401).send("nope, logout")
+        else res.status(401).render("logout1",{user1:req.session.user1})
     });
     
     router.get("/logout", (req, res) => {

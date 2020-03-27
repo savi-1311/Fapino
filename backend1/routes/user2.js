@@ -8,13 +8,13 @@ let user2
 router.get("/register", (req, res) => {
   if (!req.session.user2) {
     res.status(200).render('Register2')
-  } else res.status(401).send("Not possible as you are logged in already")
+  } else res.status(401).render("logout2",{user2:req.session.user2})
 })
 
 router.get("/login", (req, res) => {
   if (!req.session.user2)
     res.status(200).render('login2')
-  else res.status(401).send("nope, logout")
+    else res.status(401).render("logout2",{user2:req.session.user2})
 });
 router.post("/register", (req, res) => {
 
@@ -56,7 +56,9 @@ router.post("/register", (req, res) => {
     
     if (err) res.status(500).send(err);
     
-    else if (rows.length) errors.push({ msg: "Email already exists" });
+    else if (rows.length){
+      res.redirect("/emailexists2")
+    }
     
     else if (errors.length > 0) {
     
@@ -78,15 +80,16 @@ router.post("/register", (req, res) => {
     
     if (err) res.status(500).send(err);
     
-    else res.status(200).redirect('/dashboard2?login+success');
+    else 
+    {res.status(200).redirect('/')}
     
-    });
+    })
     
     }
     
     }
     
-    );
+    )
     
     });
 
@@ -104,10 +107,10 @@ router.post("/register", (req, res) => {
               req.session.user2 = user2;
               res.status(200).redirect('/dashboard2?login+success');
             } else {
-              res.status(400).send("pwd incorrect")
+              res.redirect("/pwdincorrect2");
             }
           } else {
-            res.status(400).send("email doesnot exist")
+            res.redirect("/emailnot2");
           }
         },
       )
@@ -118,7 +121,7 @@ router.post("/register", (req, res) => {
           res.status(200).redirect('/')
         })
       } else {
-        res.status(400).send("you are not logged in")
+        res.status(400).redirect("/loginerror2");
       }
     })
     router.post("/Menu", (req, res) => {
@@ -138,7 +141,7 @@ router.post("/register", (req, res) => {
             res.status(200).redirect("/user2/Menu?dish+added+successfully")
           })
         }
-      } else res.status(401).send("login to post")
+      } else res.redirect("/loginerror2")
     })
     
     router.get("/Menu", (req, res) => {
@@ -155,7 +158,7 @@ router.post("/register", (req, res) => {
             }
           },
         )
-      } else res.status(401).send("login to view")
+      } else res.redirect("/loginerror2")
     })
 
     router.get("/Menu/:dishno", (req, res) => {
@@ -170,7 +173,7 @@ router.post("/register", (req, res) => {
           },
         )
       } else {
-        res.send("login to View")
+        res.redirect("/loginerror2")
       }
     })
     
@@ -194,7 +197,7 @@ router.post("/register", (req, res) => {
                   if (err) res.status(500).send(err)
                   else {
                   res.status = 200
-                    res.redirect("/user2/Menu");
+                    res.redirect("/loginerror2");
                   }
                 },
               )
@@ -203,7 +206,7 @@ router.post("/register", (req, res) => {
         )
       } else {
       res.status = 401;
-      res.render("login", {msg: "[err]login first"})
+      res.redirect("/user2/login")
       }
     })
     router.get("/Menu/delete/:dishno", (req, res) => {
@@ -233,7 +236,7 @@ router.post("/register", (req, res) => {
           },
         )
       } else {
-        res.send("login to Delete")
+        res.redirect("/loginerror2")
       }
     })
     router.post("/update", (req, res) => {
@@ -248,7 +251,7 @@ router.post("/register", (req, res) => {
             res.send(req.session.user2)
           },
         )
-      } else res.send("please login")
+      } else res.redirect("/loginerror2")
     })
 
 module.exports = router

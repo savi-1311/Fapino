@@ -20,6 +20,34 @@ router.get('/loginerror', (req, res) =>
 {
   res.render('loginerror')
 });
+router.get('/loginerror2', (req, res) => 
+{
+  res.render('loginerror2')
+});
+router.get('/emailexists1', (req, res) => 
+{
+  res.render('emailexists1')
+});
+router.get('/emailexists2', (req, res) => 
+{
+  res.render('emailexists2')
+});
+router.get('/emailnot1', (req, res) => 
+{
+  res.render('emailnot1')
+});
+router.get('/emailnot2', (req, res) => 
+{
+  res.render('emailnot2')
+});
+router.get('/pwdincorrect1', (req, res) => 
+{
+  res.render('pwdincorrect1')
+});
+router.get('/pwdincorrect2', (req, res) => 
+{
+  res.render('pwdincorrect2')
+});
 router.get('/home2', (req, res) => {
     if (req.session.user1)
     {
@@ -63,7 +91,7 @@ router.get('/home2', (req, res) => {
         })
       }
     else
-      res.status(401).send('login for this');
+      res.redirect('/loginerror2');
   });
 
   router.get('/home2/restaurant:restaurantid', (req, res) => {

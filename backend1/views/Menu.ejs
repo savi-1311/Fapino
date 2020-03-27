@@ -1,8 +1,13 @@
 <link rel="stylesheet" href="/css/Menu.css">
+<div class="image-container">
+  <div class="text"><%= user2.resname %></div>
+</div>
+<div id="navbar">
+  <a href="/dashboard2">Go Back</a>
+  <a onclick="addDish(0,<%=i+1%>)")>Add Dish</a>
+  </div>
+</div>
 <div class="Menu-Box" id="MenuContainer">
-  <h2><a href = '/dashboard2'><button class="button" >Go Back</button></a>
-    <%= user2.resname%>  <button class="button" onclick="addDish(0,<%=i+1%>)">Add New Dish</button></h2>
-
 <% let title="add dish"; %>
 <%= typeof msg != 'undefined' ? msg : '' %>
     <%for(var i=0;i<Menu.length;i++){%>
@@ -17,26 +22,29 @@
         <%if (Menu[i].cusine === "chinese") { %>
         <img src="/images/img33.png"><br>
         <% } %>
-        <span><b><%= Menu[i].dishname%></b></span><br>
-        <span><b>Price: Rs.</b></span>
-        <span><b><%= Menu[i].dishprice%></b></span>
+        <span><b><%= Menu[i].dishname%></b></span>
+        <span><p><b>Price:</b> Rs.</span>
+        <span><%= Menu[i].dishprice%></p></span>
       </div>
       <div class="info-column">
-        <span><b>Category: </b></span>
-        <span><b><%= Menu[i].category%></b></span>
+        <span><p><b>Category: </b></span>
+        <span><%= Menu[i].category%></p></span>
       </div>
       <div class="info-column">
-        <span><b>Cusine: </b></span>
-        <span><b><%= Menu[i].cusine%></b></span>
+        <span><p><b>Cusine: </b></span>
+        <span><%= Menu[i].cusine%></p></span>
       </div>
       <div class="info-column">
-        <span><b>Type: </b></span>
-        <span><b><%= Menu[i].foodtype%></b></span>
+        <p><b>Type: </b>
+          <%if (Menu[i].foodtype === "veg") { %>
+            <img class="icon" src="/images/veg.png" height="15px" width="15px"> Vegetarian</p><br>
+            <% } %>
+            <%if (Menu[i].foodtype === "non-veg") { %>
+            <img class="icon" src="/images/non-veg.png" height="15px" width="15px"> Non-Vegetarian</p><br>
+            <% } %>
       </div>
-      <div id="icon">
-      <button class="button1" onclick="addDish(0,<%=i%>);">EDIT</button>
-      <a href="/user2/Menu/delete/<%= Menu[i].dishno %>"><button class="button1">DELETE</button></a>
-      </div>
+      <button class="button1" onclick="addDish(0,<%=i%>);">Edit</button>
+      <a href="/user2/Menu/delete/<%= Menu[i].dishno %>"><button class="button1">Delete</button></a>
     </div>
     <%}%>
   </div>
@@ -70,22 +78,22 @@
       </div>
       <div>
       <label><b>Dish Cusine: </b>
-        <input type="radio" name="cusine" class= "cusine" value="indian" checked><b> Indian </b>
-        <input type="radio" name="cusine" class= "cusine"  value="chinese"  ><b> Chinese</b>
-        <input type="radio" name="cusine" class= "cusine"  value="italian"><b> Italian </b><br>
+        <p><input type="radio" name="cusine" class= "cusine" value="indian" checked> Indian
+        <input type="radio" name="cusine" class= "cusine"  value="chinese"  > Chinese
+        <input type="radio" name="cusine" class= "cusine"  value="italian">Italian</p> <br>
      </label>
       </div>
       <div>
       <label><b>Dish Category:</b> 
-        <input type="radio" name="category" class= "category" value="starter" checked><b> Starters</b>
-        <input type="radio" name="category" class= "category"  value="main course"> <b>Main Course</b>
-        <input type="radio" name="category" class= "category"  value="dessert"><b> Desserts And Refreshments </b><br>
+        <p><input type="radio" name="category" class= "category" value="starter" checked> Starters
+        <input type="radio" name="category" class= "category"  value="main course"> Main Course
+        <input type="radio" name="category" class= "category"  value="dessert"> Desserts And Refreshments</p><br>
      </label>
       </div>
       <div>
       <label><b>Dish Type:</b> 
-        <input type="radio" name="foodtype" class= "foodtype"  value="veg" checked><b> Vegetarian</b>
-        <input type="radio" name="foodtype" class= "foodtype"  value="non-veg"><b> Non-Vegetarian </b>
+        <p><input type="radio" name="foodtype" class= "foodtype"  value="veg" checked>Vegetarian
+        <input type="radio" name="foodtype" class= "foodtype"  value="non-veg"> Non-Vegetarian</p>
      </label>
       </div>
       <button type="submit" class="button">Save</button>
@@ -99,7 +107,7 @@
 <script>const addDish = (val,i) => {
   const title = document.getElementById('form-title');
   if(!val){
-    title.innerHTML= "Edit Dish";
+    title.innerHTML= "Add Dish";
     const modal = document.getElementById("modal-container");
     modal.style.display = "flex";
     modal.style.animation = "modalFadeIn 0.5s";
@@ -135,5 +143,17 @@
       modal.style.display = "none";
     }, 400);
   }
+  window.onscroll = function() {myFunction()};
+    
+    var navbar = document.getElementById("navbar");
+    var sticky = navbar.offsetTop;
+    
+    function myFunction() {
+      if (window.pageYOffset >= sticky) {
+        navbar.classList.add("sticky")
+      } else {
+        navbar.classList.remove("sticky");
+      }
+    }
 
     </script>

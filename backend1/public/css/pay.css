@@ -1,5 +1,5 @@
 body{
-    background: url('/images/bg8.jpg') no-repeat;
+    background: url('/images/bg10.jpg') no-repeat;
 	height:100%;
 	background-attachment: fixed; 
     background-position: center;
@@ -13,8 +13,7 @@ body{
     top: 65%;
     width: 50%;
     padding: 2%;
-    background-color:teal;
-    background-image: linear-gradient(mediumseagreen, yellowgreen);
+    background-color: rgba(60,179,113,0.8);
     text-align: center;
     align-items: center;
     border-radius: 1%;

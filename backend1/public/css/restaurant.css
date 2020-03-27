@@ -1,5 +1,5 @@
 body{
-    background: url('/images/bg8.jpg') no-repeat;
+    background: url('/images/bg9.jpg') no-repeat;
 	height:100%;
 	background-attachment: fixed; 
     background-position: center;
@@ -12,6 +12,7 @@ body{
   background-size: cover;
   position: relative; /* Needed to position the cutout text in the middle of the image */ /* Some height */
   height: 500px;
+  width: 100%;
 }
 
 .text {
@@ -38,8 +39,8 @@ body{
     top: 65%;
     width: 60%;
     padding: 2%;
-    background-color:teal;
-    background-image: linear-gradient(mediumseagreen, yellowgreen);
+    background-color: rgba(60,179,113,0.8);
+    /* background-image: linear-gradient(mediumseagreen, yellowgreen); */
     text-align: center;
     align-items: center;
     border-radius: 1%;

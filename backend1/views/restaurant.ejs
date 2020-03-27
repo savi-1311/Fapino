@@ -2,12 +2,14 @@
   <div class="image-container">
     <div class="text"><%= user2[0].resname %></div>
   </div>
+
   <div id="navbar">
     <a href="#starter">Starters</a>
     <a href="#Main Course">Main Course</a>
-    <a href="#Dessert">Dessert And Refreshments</a>
-    <a href="#Order" class="Now">Order Now!</a>
+    <a href="#Dessert">Dessert And Refreashments</a>
+    <a href="#Order" class="Now">Order Now</a>
   </div>
+
 <div class="menubox">
     <h2 id="starter">Starters: </h2>
     <%for(var i=0;i<Menu.length ;i++){%>
@@ -87,19 +89,6 @@
 <br>
 
 <script>
-    window.onscroll = function() {myFunction()};
-    
-    var navbar = document.getElementById("navbar");
-    var sticky = navbar.offsetTop;
-    
-    function myFunction() {
-      if (window.pageYOffset >= sticky) {
-        navbar.classList.add("sticky")
-      } else {
-        navbar.classList.remove("sticky");
-      }
-    }
-
     function incrementValue(e) {
   e.preventDefault();
   var fieldName = $(e.target).data('field');
@@ -133,5 +122,18 @@ $('.input-group').on('click', '.button-plus', function(e) {
 $('.input-group').on('click', '.button-minus', function(e) {
   decrementValue(e);
 });
+
+window.onscroll = function() {myFunction()};
+    
+    var navbar = document.getElementById("navbar");
+    var sticky = navbar.offsetTop;
+    
+    function myFunction() {
+      if (window.pageYOffset >= sticky) {
+        navbar.classList.add("sticky")
+      } else {
+        navbar.classList.remove("sticky");
+      }
+    }
     </script>
 
