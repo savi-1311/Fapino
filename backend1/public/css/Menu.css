@@ -125,7 +125,7 @@ h3{
     border-radius: 2.5%;
 }
 .button1{
-    background-color: seagreen;
+    background-color: tomato;
     font-size: 20px;
     color: white;
     padding: 2%;
@@ -173,7 +173,9 @@ input[type=submit]{
   }
   .button1:hover {
     cursor: pointer;
-    background-color: green;
+    background-color: white;
+    color: black;
+    border: solid black 2px;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
   }
 
