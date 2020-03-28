@@ -15,7 +15,7 @@ A Website where customers can Order Food From different Registered Restaurants a
   The Customer cannot add items to the cart or the Restaurant Owner cannot add dishes without Logging In. Error pages are designed and
   redirected to Login Pages if the user does that.
   
-  "bcrypt" Dependancy is used to store hashed passwords so that the website admin cannot access the profile of the customers aur the 
+  "bcrypt" Dependancy is used to store hashed passwords so that the website admin cannot access the profile of the customers Or the 
   Restaurant Owners.
 * __Error Linking__
 
