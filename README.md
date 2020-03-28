@@ -10,6 +10,17 @@ A Website where customers can Order Food From different Registered Restaurants a
   
   The Customer can Order the Dishes from various Registered Restaurants and look at their previous Ratings. After Ordering they can Rate   (or choose not to) the Dishes Ordered.
   The Restaurant Owners can Register their Restaurants, Add, Delete and Edit the Dishes.
+* __Security Feature__
+
+  The Customer cannot add items to the cart or the Restaurant Owner cannot add dishes without Logging In. Error pages are designed and
+  redirected to Login Pages if the user does that.
+  
+  "bcrypt" Dependancy is used to store hashed passwords so that the website admin cannot access the profile of the customers aur the 
+  Restaurant Owners.
+* __Error Linking__
+
+  If the user Logs In but the email isn't registered then he will be directed to the Register Page. Similarly, if the user registeres
+  new but the email already exists the he will be directed to the Login Page. 404 Error Page is also designed.
 * __The Cart can store the Previously ordered Dishes.__
   
   When the customer logs out without paying for the dishes and then Login Again, he can see the previously orderd items intact in the     Cart.
