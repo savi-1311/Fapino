@@ -25,6 +25,10 @@ A Website where customers can Order Food From different Registered Restaurants a
 * __Responsive__
   
   Every Page is Responsive. The divs resize and rearrange themselves to fit in the frame and the data never gets hidden.
+* __Used Loops with Conditional Statements__
+
+  While rendering the pages dynamically, conditional statements have been used so that Pictures don't repeat themselves and are
+  displayed according to the dish cuisine or the category.
 
 
 ## SCREENSHOTS
