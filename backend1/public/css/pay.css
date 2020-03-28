@@ -5,10 +5,7 @@ body{
     background-position: center;
 	background-size: cover;
     text-align: center;
-<<<<<<< HEAD
     font-family: 'Josefin Sans', sans-serif;
-=======
->>>>>>> 17e0d8e858a19dd15d33f2b0b87e07bd68078c07
 }
 
 
@@ -46,22 +43,14 @@ h2 {
     background-color: darkcyan;
     font-size: 20px;
     color: white;
-<<<<<<< HEAD
-=======
-    font-family: sans-serif;
->>>>>>> 17e0d8e858a19dd15d33f2b0b87e07bd68078c07
     padding: 10px 24px;
     border : 2px solid white;
     border-radius: 2.5%;
 }
 input[type=submit]{
     background-color: #4CAF50;
-<<<<<<< HEAD
     border: solid white 2px;
     font-size: 20px;
-=======
-    border: none;
->>>>>>> 17e0d8e858a19dd15d33f2b0b87e07bd68078c07
     color: white;
     padding: 10px 20px;
     text-decoration: none;

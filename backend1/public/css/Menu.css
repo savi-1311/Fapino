@@ -5,10 +5,7 @@ body{
     background-position: center;
 	background-size: cover;
     text-align: center;
-<<<<<<< HEAD
     font-family: 'Josefin Sans', sans-serif;
-=======
->>>>>>> 17e0d8e858a19dd15d33f2b0b87e07bd68078c07
 }
 #navbar {
   display: flex;
@@ -57,10 +54,6 @@ body{
 }
 
 .text {
-<<<<<<< HEAD
-=======
-  font-family: Arial, Helvetica, sans-serif;
->>>>>>> 17e0d8e858a19dd15d33f2b0b87e07bd68078c07
   font-weight: bold;
   background-color: white;
   color: black;
@@ -88,59 +81,34 @@ body{
 }
 
 .card-box{
-<<<<<<< HEAD
   border: solid 5px white;
-=======
->>>>>>> 17e0d8e858a19dd15d33f2b0b87e07bd68078c07
     margin: 1%;
     padding: 2%;
     display: inline-block;
 	width: 30%;
 	min-width: 350px;
-<<<<<<< HEAD
 	color: white;
-=======
-	background: white;
-	color: blue;
->>>>>>> 17e0d8e858a19dd15d33f2b0b87e07bd68078c07
 	top:65%;
     left:50%;
     border-radius: 2.5%;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
 p{
-<<<<<<< HEAD
   font-size: 20px;
   color: white;
-=======
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 18px;
-  color: blue;
->>>>>>> 17e0d8e858a19dd15d33f2b0b87e07bd68078c07
 }
 h2 {
     display: flex;
     justify-content: space-between;
     color: white;
-<<<<<<< HEAD
     font-size: 35px;
-=======
-    font-size: 30px;
->>>>>>> 17e0d8e858a19dd15d33f2b0b87e07bd68078c07
     padding: 10px 24px;
     border : 2px solid white;
 }
 b{
-<<<<<<< HEAD
     font-weight: 600;
     font-size: 20px;
     color: white;
-=======
-  font-family: Arial, Helvetica, sans-serif;
-    font-weight: 600;
-    font-size: 18px;
-    color: navy;
->>>>>>> 17e0d8e858a19dd15d33f2b0b87e07bd68078c07
 }
 h3{
     font-weight: normal;
@@ -152,39 +120,22 @@ h3{
     background-color: darkcyan;
     font-size: 20px;
     color: white;
-<<<<<<< HEAD
-=======
-    font-family: sans-serif;
->>>>>>> 17e0d8e858a19dd15d33f2b0b87e07bd68078c07
     padding: 10px 24px;
     border : 2px solid white;
     border-radius: 2.5%;
 }
 .button1{
-<<<<<<< HEAD
     background-color: tomato;
     font-size: 20px;
     color: white;
     padding: 2%;
     margin: 1%;
     border : 2px solid white;
-=======
-    background-color: seagreen;
-    font-size: 18px;
-    color: white;
-    padding: 1%;
-    margin: 1%;
-    border : 2px solid wheat;
->>>>>>> 17e0d8e858a19dd15d33f2b0b87e07bd68078c07
     border-radius: 2.5%;
 }
 input[type=submit]{
     background-color: #4CAF50;
-<<<<<<< HEAD
     border: solid white 2px;
-=======
-    border: none;
->>>>>>> 17e0d8e858a19dd15d33f2b0b87e07bd68078c07
     color: white;
     padding: 10px 20px;
     text-decoration: none;
@@ -206,14 +157,8 @@ input[type=submit]{
 .modal-header{
     background-color: tomato;
     color: white;
-<<<<<<< HEAD
     font-size: 20px;
     padding: 0.1%;
-=======
-    font-size: 18px;
-    padding: 0.1%;
-    font-family: sans-serif;
->>>>>>> 17e0d8e858a19dd15d33f2b0b87e07bd68078c07
     margin: 1%;
 }
 .info-column .icon{
@@ -228,13 +173,9 @@ input[type=submit]{
   }
   .button1:hover {
     cursor: pointer;
-<<<<<<< HEAD
     background-color: white;
     color: black;
     border: solid black 2px;
-=======
-    background-color: green;
->>>>>>> 17e0d8e858a19dd15d33f2b0b87e07bd68078c07
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
   }
 
@@ -255,10 +196,7 @@ input[type=submit]{
   }
   .modal-form input[type="text"]
 {
-<<<<<<< HEAD
   text-align: center;
-=======
->>>>>>> 17e0d8e858a19dd15d33f2b0b87e07bd68078c07
 	border: none;
 	border-bottom: 1px solid #fff;
 	background: transparent;
@@ -269,7 +207,6 @@ input[type=submit]{
 }
 
 img {
-<<<<<<< HEAD
     border: 5px solid white;
     border-radius: 1%;
     width: 250px;
@@ -284,12 +221,6 @@ img {
   .options{
     color: black;
     font-size:18px;
-=======
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 5px;
-    width: 150px;
->>>>>>> 17e0d8e858a19dd15d33f2b0b87e07bd68078c07
   }
 
 

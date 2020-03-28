@@ -5,10 +5,7 @@ body{
     background-position: center;
 	background-size: cover;
     text-align: center;
-<<<<<<< HEAD
     font-family: 'Josefin Sans', sans-serif;
-=======
->>>>>>> 17e0d8e858a19dd15d33f2b0b87e07bd68078c07
 }
 
 
@@ -24,22 +21,14 @@ body{
 }
 
 .orderinfo{
-<<<<<<< HEAD
     font-size: 20px;
-=======
->>>>>>> 17e0d8e858a19dd15d33f2b0b87e07bd68078c07
     margin: 1%;
     padding: 2%;
     display: inline-block;
 	width: 30%;
 	min-width: 350px;
-<<<<<<< HEAD
 	color: white;
     border: solid white 5px;
-=======
-	background: white;
-	color: blue;
->>>>>>> 17e0d8e858a19dd15d33f2b0b87e07bd68078c07
 	top:65%;
     left:50%;
     border-radius: 2.5%;
@@ -55,7 +44,6 @@ h2 {
     background-color: darkcyan;
     font-size: 20px;
     color: white;
-<<<<<<< HEAD
     padding: 10px 24px;
     border : 2px solid white;
     border-radius: 5%;
@@ -64,23 +52,12 @@ input[type=submit]{
     font-size: 20px;
     border : 2px solid white;
     background-color: #4CAF50;
-=======
-    font-family: sans-serif;
-    padding: 10px 24px;
-    border : 2px solid white;
-    border-radius: 2.5%;
-}
-input[type=submit]{
-    background-color: #4CAF50;
-    border: none;
->>>>>>> 17e0d8e858a19dd15d33f2b0b87e07bd68078c07
     color: white;
     padding: 10px 20px;
     text-decoration: none;
     margin: 4px 2px;
     cursor: pointer;
     font-weight: bold;
-<<<<<<< HEAD
     border-radius: 2%;
 }
 img {
@@ -88,14 +65,6 @@ img {
     width: 250px;
     border-radius: 1%;
     padding: 1%;
-=======
-}
-img {
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 5px;
-    width: 150px;
->>>>>>> 17e0d8e858a19dd15d33f2b0b87e07bd68078c07
   }
 
 .button:hover {
