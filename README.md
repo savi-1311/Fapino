@@ -1,2 +1,27 @@
-# Fapino
-A website to order and rate delicious food!
+# FAPINO - A Food Trap
+
+## A Website to Order And Rate Delicious Food !
+
+A Website where customers can Order Food From different Registered Restaurants and Further Rate the dishes ordered.
+
+## FEATURES
+
+* Both Customer and Restaurant Owners Can Register at the Website.
+* Feature 2
+* Feature 3
+
+Make sure you give detailed description of the features
+
+## SCREENSHOTS
+
+Attach a google drive link to a folder containing screenshots of your website. Make sure you have enabled link sharing to view the folder.
+
+## VIDEO
+
+Attach a google drive link to a video of your website(max length : 5 mins). Make sure you have enabled link sharing to view the video.
+
+## HOSTED WEBSITE LINK
+
+Attach the link to your hosted website here. You can learn here on how to host your website on heroku in less than 10 mins:- https://www.youtube.com/watch?v=P86N9FqNqso
+
+
