@@ -48,7 +48,7 @@ Attach a google drive link to a folder containing screenshots of your website. M
 
 ## VIDEO
 
-Attach a google drive link to a video of your website(max length : 5 mins). Make sure you have enabled link sharing to view the video.
+[The Google Drive Link To The Screen Recording Of our Website](https://drive.google.com/file/d/15G2w_xc2_BVsiRkq8aw02WN4KvLo2n7o/view?usp=sharing)
 
 ## HOSTED WEBSITE LINK
 
