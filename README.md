@@ -44,7 +44,7 @@ A Website where customers can Order Food From different Registered Restaurants a
  
  ## Explaining the important features in screenshots , capture(for pics of website) and code(for pics of code)
  * __capture 23 , 24 , 25 , 26 , 27 , 28__
- So , this is our home/landing pages as soon as one browse our website . The icon used at the top , is designed by us as well . The top bar is sticky . Below the top bar there is an automatic slideshow which changes the images after every 4 seconds !! refer to code 10 , 11 for styling and code 14 for the javascript used . Apart from that the grid panel used has a special responsive and transform effect too , refer to code 13 . capture 27 and 28 shows the responsive effect and also how we've used media quiery for changing the styles at the particular window size .
+ So , this is our home/landing pages as soon as one browse our website . The icon used at the top , is designed by us as well . The top bar is sticky . Below the top bar there is an automatic slideshow which changes the images after every 4 seconds !! refer to code 10 , 11 for styling and code 14 for the javascript used . Apart from that the grid panel used has a special responsive and transform effect too , refer to code 13 . capture 27 and 28 shows the responsive effect and also how we've used media quiery for changing the styles at the particular window size . One more important aspect is as soon as we login we will see a "cart" icon at the place of "login" button which will show a specific number 0,1,2 or anything depending upon the number of items in the cart . Refer to code 12 to get an insight about this feature .
 
 * __capture 1 , 2 , 3 , 4 , 5 , 6__
  These images represent the registration and login pages . Here we have used an "I'm a restaurant button" to separate the customer and restaurant owner database .
@@ -52,13 +52,14 @@ A Website where customers can Order Food From different Registered Restaurants a
  
  * __capture 7 , 8 , 9 , 10 , 11 , 12__
  
- These are our restaurant's menu pages . Divided the dishes in three sections named "starters" , "main course" and "dessert and refreshments" . The blinking ORDER NOW button is a highlight , for that refer code 3 .
- The arrangement of the blocks as inline blocks is another imp. feature which is responsive at the same time , refer to code 4 .
- The red coloured increment and decrement buttons are implemented using combined css and jquery refer to code 15 .
- Capture 11 and 12 clearly shows how the blocks get in a single line when reduced to a certain screen size .
+  These are our restaurant's menu pages . Divided the dishes in three sections named "starters" , "main course" and 
+  "dessert and refreshments" . The blinking ORDER NOW button is a highlight , for that refer code 3 .
+  The arrangement of the blocks as inline blocks is another imp. feature which is responsive at the same time , refer to code 4 .
+  The red coloured increment and decrement buttons are implemented using combined css and jquery refer to code 15 .
+  Capture 11 and 12 clearly shows how the blocks get in a single line when reduced to a certain screen size . Moreover the top bar         is sticky which is another striking feature .
  
   * __capture 13 , 14__
-  These are our cart pages . Anything from the restaurant's menu can be added to cart , once you have logged in . If you have'nt then you will be directed to the login page first . There is special use of javascript for these pages . Refer to code 15 and 16 , it basically states that if there's nothing in the cart , then it will display cart is empty . Otherwise it will display the items added to the cart .
+  These are our cart pages . Anything from the restaurant's menu can be added to cart , once you have logged in . If you have'nt then you will be directed to the login page first . There is special use of javascript for these pages . Refer to code 16 , it basically states that if there's nothing in the cart , then it will display cart is empty . Otherwise it will display the items added to the cart .
  
  * __capture 15 , 16__ 
  These are our payment pages . When we click the "PAY" button the modal box appears , refer to code 6 and 5 for viewing the style and animations used there .
