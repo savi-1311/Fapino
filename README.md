@@ -50,7 +50,8 @@ A Website where customers can Order Food From different Registered Restaurants a
  These images represent the registration and login pages . Here we have used an "I'm a restaurant button" to separate the customer and restaurant owner database .
  Created the form using HTML forms and style it accordingly !! Also the responsiveness is shown in cap 5 and 6 . Plz refer to code 1 and 2 .
  
- * __capture 7 , 8 , 9 , 10 , 11 , 12 __
+ * __capture 7 , 8 , 9 , 10 , 11 , 12__
+ 
  These are our restaurant's menu pages . Divided the dishes in three sections named "starters" , "main course" and "dessert and refreshments" . The blinking ORDER NOW button is a highlight , for that refer code 3 .
  The arrangement of the blocks as inline blocks is another imp. feature which is responsive at the same time , refer to code 4 .
  The red coloured increment and decrement buttons are implemented using combined css and jquery refer to code 15 .
