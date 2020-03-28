@@ -1,4 +1,5 @@
 # FAPINO - A Food Trap
+### Developed by- Somya Surendra Singh, Shambhavi Shandilya And Shashwat Agrawal
 
 ## A Website to Order And Rate Delicious Food !
 
@@ -52,6 +53,6 @@ Attach a google drive link to a folder containing screenshots of your website. M
 
 ## HOSTED WEBSITE LINK
 
-Attach the link to your hosted website here. You can learn here on how to host your website on heroku in less than 10 mins:- https://www.youtube.com/watch?v=P86N9FqNqso
+[The Website Has been Hosted at fapino-a-food-trap.herokuapp.com](http://fapino-a-food-trap.herokuapp.com/)
 
 
