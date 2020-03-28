@@ -1,5 +1,9 @@
 body{
+<<<<<<< HEAD
     background-image : url(/images/rating-img.jpg);
+=======
+    background-image : url(rating-img.jpg);
+>>>>>>> 17e0d8e858a19dd15d33f2b0b87e07bd68078c07
     margin: 0;
     font-family: 'Josefin Sans', sans-serif;
 }

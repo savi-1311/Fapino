@@ -5,7 +5,10 @@ body{
     background-position: center;
 	background-size: cover;
     text-align: center;
+<<<<<<< HEAD
     font-family: 'Josefin Sans', sans-serif;
+=======
+>>>>>>> 17e0d8e858a19dd15d33f2b0b87e07bd68078c07
 }
 
 .image-container {
@@ -17,6 +20,10 @@ body{
 }
 
 .text {
+<<<<<<< HEAD
+=======
+  font-family: Arial, Helvetica, sans-serif;
+>>>>>>> 17e0d8e858a19dd15d33f2b0b87e07bd68078c07
   font-weight: bold;
   background-color: white;
   color: black;
@@ -37,16 +44,24 @@ body{
 .menubox{
     display: inline-block;
     top: 65%;
+<<<<<<< HEAD
     width: 80%;
     padding: 2%;
     background-color: rgba(60,179,113,0.8);
     background-image: linear-gradient ( rgba(60,179,113,0.8), rgba(154,205,50));
+=======
+    width: 60%;
+    padding: 2%;
+    background-color: rgba(60,179,113,0.8);
+    /* background-image: linear-gradient(mediumseagreen, yellowgreen); */
+>>>>>>> 17e0d8e858a19dd15d33f2b0b87e07bd68078c07
     text-align: center;
     align-items: center;
     border-radius: 1%;
 }
 
 .box-zone{
+<<<<<<< HEAD
   font-size: 20px;
     margin: 1%;
     padding: 2%;
@@ -56,10 +71,21 @@ body{
    color: white;
    border: solid white 5px;
 	  top:65%;
+=======
+    margin: 1%;
+    padding: 2%;
+    display: inline-block;
+	width: 30%;
+	min-width: 350px;
+	background: white;
+	color: blue;
+	top:65%;
+>>>>>>> 17e0d8e858a19dd15d33f2b0b87e07bd68078c07
     left:50%;
     border-radius: 2.5%;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
+<<<<<<< HEAD
 
 .box-zone:hover {
   /* -webkit-transform: rotate(-7deg);
@@ -73,6 +99,11 @@ body{
 h2 {
     color: white;
     font-size: 35px;
+=======
+h2 {
+    color: white;
+    font-size: 30px;
+>>>>>>> 17e0d8e858a19dd15d33f2b0b87e07bd68078c07
     padding: 10px 24px;
     border : 2px solid white;
 }
@@ -80,9 +111,16 @@ h2 {
     background-color: darkcyan;
     font-size: 20px;
     color: white;
+<<<<<<< HEAD
     padding: 10px 24px;
     border : 2px solid white;
     border-radius: 5%;
+=======
+    font-family: sans-serif;
+    padding: 10px 24px;
+    border : 2px solid white;
+    border-radius: 2.5%;
+>>>>>>> 17e0d8e858a19dd15d33f2b0b87e07bd68078c07
 }
 
 input,
@@ -111,11 +149,15 @@ input::-webkit-inner-spin-button {
 }
 
 .input-group input[type='button'] {
+<<<<<<< HEAD
   color: white;
   background-color: tomato;
   border: solid 2px white;
   padding:1%;
   border-radius: 2%;
+=======
+  background-color: seagreen;
+>>>>>>> 17e0d8e858a19dd15d33f2b0b87e07bd68078c07
   min-width: 38px;
   width: auto;
   transition: all 300ms ease;
@@ -161,15 +203,21 @@ input[type="number"] {
   -webkit-appearance: none;
 }
 input[type=submit]{
+<<<<<<< HEAD
     font-size: 20px;
     border : 2px solid white;
     background-color: tomato;
+=======
+    background-color: #4CAF50;
+    border: none;
+>>>>>>> 17e0d8e858a19dd15d33f2b0b87e07bd68078c07
     color: white;
     padding: 10px 20px;
     text-decoration: none;
     margin: 4px 2px;
     cursor: pointer;
     font-weight: bold;
+<<<<<<< HEAD
     border-radius: 2%;
 }
 input[type=submit]:hover{
@@ -183,6 +231,19 @@ img {
     border: 20px solid white;
     width: 250px;
     border-radius: 1%;
+=======
+}
+input[type=submit]:hover{
+  cursor: pointer;
+  background-color: darkgreen;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+img {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 150px;
+>>>>>>> 17e0d8e858a19dd15d33f2b0b87e07bd68078c07
   }
 
   #navbar {
@@ -220,6 +281,10 @@ img {
   .heading{
     color: white;
     font-size: 40px;
+<<<<<<< HEAD
+=======
+    font-family: cursive;
+>>>>>>> 17e0d8e858a19dd15d33f2b0b87e07bd68078c07
     background-color: tomato;
     border: solid 2px white;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
@@ -235,6 +300,10 @@ img {
     background-color: limegreen;
     font-size: 20px;
     color: white;
+<<<<<<< HEAD
+=======
+    font-family: sans-serif;
+>>>>>>> 17e0d8e858a19dd15d33f2b0b87e07bd68078c07
     padding: 10px 24px;
     border : 2px solid white;
     border-radius: 2.5%;
