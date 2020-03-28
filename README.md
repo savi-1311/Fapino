@@ -45,7 +45,7 @@ A Website where customers can Order Food From different Registered Restaurants a
 
 ## SCREENSHOTS
 
-Attach a google drive link to a folder containing screenshots of your website. Make sure you have enabled link sharing to view the folder.
+[The google drive link for the screenshots of our website]https://drive.google.com/open?id=17782eS9Xgofwu29rQbjFghPzAkMWEixo
 
 ## VIDEO
 
