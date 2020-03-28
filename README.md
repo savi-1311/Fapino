@@ -6,20 +6,20 @@ A Website where customers can Order Food From different Registered Restaurants a
 
 ## FEATURES
 
-* Both Customer and Restaurant Owners Can Register at the Website.
+* __Both Customer and Restaurant Owners Can Register at the Website.__
   
   The Customer can Order the Dishes from various Registered Restaurants and look at their previous Ratings. After Ordering they can Rate   (or choose not to) the Dishes Ordered.
   The Restaurant Owners can Register their Restaurants, Add, Delete and Edit the Dishes.
-* The Cart can store the Previously ordered Dishes.
+* __The Cart can store the Previously ordered Dishes.__
   
   When the customer logs out without paying for the dishes and then Login Again, he can see the previously orderd items intact in the     Cart.
-* Ample Use of Javascript for Animations.
+* __Ample Use of Javascript for Animations.__
   
   The Picture Slideshow with fading effects on the Home Page. The Sticky Navigation Bar in various pages. The Glowing Order Now Button.   The Modal Boxes. All have used Javascript for animation. (Screenshots attached)
-* Use Of JQuery
+* __Use Of JQuery__
   
   To explore more we have used JQuery to write the functions for Quantity Increment and Decrement Buttons in the Restaurant's Menu.
-* Responsive
+* __Responsive__
   
   Every Page is Responsive. The divs resize and rearrange themselves to fit in the frame and the data never gets hidden.
 
