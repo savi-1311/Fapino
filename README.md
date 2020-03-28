@@ -1,5 +1,5 @@
 # FAPINO - A Food Trap
-### Developed by- Somya Surendra Singh, Shambhavi Shandilya And Shashwat Agrawal
+### Developed by- [Somya Surendra Singh](https://github.com/tend2infinity), [Shambhavi Shandilya](https://github.com/savi-1311) And Shashwat Agrawal
 
 ## A Website to Order And Rate Delicious Food !
 
