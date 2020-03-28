@@ -13,6 +13,9 @@ A Website where customers can Order Food From different Registered Restaurants a
 * __The Cart can store the Previously ordered Dishes.__
   
   When the customer logs out without paying for the dishes and then Login Again, he can see the previously orderd items intact in the     Cart.
+* __Rating Of The Dishes__
+
+  Every Dish Is rated by the Average Rating of All the other customers who has rated the same dish. If the Restaurant Owner Deletes The   dish, all the ratings of that particular dish gets Deleted automatically. 
 * __Ample Use of Javascript for Animations.__
   
   The Picture Slideshow with fading effects on the Home Page. The Sticky Navigation Bar in various pages. The Glowing Order Now Button.   The Modal Boxes. All have used Javascript for animation. (Screenshots attached)
